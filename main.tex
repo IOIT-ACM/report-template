@@ -61,16 +61,143 @@
 %      - Image filenames (example-image-a → actual-filename.png)
 %      DO NOT change LaTeX markup, formatting commands, or structural elements.
 %
-%   6. HANDLE MISSING DATA PROACTIVELY:
-%      - If user provides incomplete information for their event type, you MUST
-%        identify and REQUEST the missing data before generating the report
-%      - For COMPETITIONS: Require winner details, positions, project titles
-%      - For WORKSHOPS/SEMINARS: Require resource person complete details
-%      - For ALL EVENTS: Require event date, venue, participant count, outcomes
-%      - NEVER proceed with placeholder text for critical information
-%      - Ask specific questions: "Please provide the names and departments of
-%        the top 3 winners" rather than accepting incomplete data
-%      - List ALL missing required fields in a clear, organized manner
+%   6. HANDLE MISSING DATA PROACTIVELY - CRITICAL REQUIREMENT:
+%      ⚠️ THE GENERATED REPORT MUST BE FINAL AND COMPLETE WITH NO PLACEHOLDERS
+%
+%      Before generating the report, you MUST verify ALL required information
+%      is provided. If ANY data is missing, STOP and REQUEST it explicitly.
+%
+%      MANDATORY DATA REQUIREMENTS BY EVENT TYPE:
+%
+%      A. FOR ALL EVENT TYPES (UNIVERSAL REQUIREMENTS):
+%         □ Event name/title
+%         □ Event date (DD/MM/YYYY format)
+%         □ Event venue (specific location/room if applicable)
+%         □ Event head/coordinator name
+%         □ Report author name
+%         □ Submission date
+%         □ Total number of participants/registrations
+%         □ Total number of attendees (actual attendance)
+%         □ Event objectives (specific, measurable goals)
+%         □ Event outcomes (actual results achieved)
+%         □ At least 3-5 event photographs with descriptive contexts
+%         □ Event schedule/agenda with specific timings
+%
+%      B. FOR WORKSHOPS/SEMINARS/GUEST LECTURES:
+%         □ Resource person full name
+%         □ Resource person designation/job title
+%         □ Resource person organization/company name
+%         □ Resource person email ID (mandatory for official records)
+%         □ Resource person contact number (if available)
+%         □ Resource person area of expertise
+%         □ Resource person professional background/credentials
+%         □ Topics/sessions handled by resource person
+%         □ Duration of each session conducted
+%
+%      C. FOR COMPETITIONS/HACKATHONS/CONTESTS:
+%         □ First place winner name/team name
+%         □ First place winner department and year
+%         □ First place project/solution title
+%         □ Second place winner details (same as above)
+%         □ Third place winner details (same as above)
+%         □ Brief description of each winning solution
+%         □ Prizes awarded to winners
+%         □ Judging criteria used
+%         □ Number of teams/individuals participated
+%         □ Competition format and rules
+%
+%      D. FOR HACKATHONS (ADDITIONAL REQUIREMENTS):
+%         □ Hackathon theme/problem statement
+%         □ Technologies/tools allowed or recommended
+%         □ Mentors/judges details (if external experts involved)
+%         □ Project demonstration format
+%         □ Evaluation metrics
+%
+%      E. FOR COLLABORATIVE EVENTS:
+%         □ Collaboration partner organization name
+%         □ Nature of collaboration
+%         □ Resources/support provided by partner
+%
+%      HOW TO REQUEST MISSING DATA:
+%      - Be SPECIFIC: Don't ask "provide more details" - ask for exact fields
+%      - ORGANIZE requests by category: participant data, resource person info, etc.
+%      - EXPLAIN why each field is needed: "Email ID is mandatory for official records"
+%      - PRIORITIZE: Mark absolutely critical data vs. optional information
+%      - PROVIDE format: "Please provide date in DD/MM/YYYY format"
+%
+%      EXAMPLE REQUEST FORMAT:
+%      "I need the following information to complete your event report:
+%
+%      CRITICAL MISSING DATA:
+%      1. Resource Person Details:
+%         - Email ID (required for official records)
+%         - Professional designation
+%         - Organization name
+%
+%      2. Participation Statistics:
+%         - Total number of registrations
+%         - Actual attendance count
+%         - Department-wise breakdown (CSE, IT, etc.)
+%
+%      3. Event Outcomes:
+%         - Participant satisfaction rating (if feedback collected)
+%
+%      OPTIONAL BUT RECOMMENDED:
+%      - Resource person contact number
+%      - Quotes from participant feedback
+%      - Follow-up activities planned
+%
+%      Please provide this information so I can generate a complete, final report
+%      that requires no further updates."
+%
+%      DO NOT PROCEED with placeholder text like:
+%      ❌ [Resource Person Email]
+%      ❌ [Number of Participants]
+%      ❌ [Winner Name]
+%      ❌ [Provide details]
+%      ❌ [To be filled]
+%      ❌ [Write summary here]
+%      ❌ [Add description]
+%
+%      ACCEPTABLE approach:
+%      ✓ Stop generation
+%      ✓ List all missing required fields
+%      ✓ Request specific information
+%      ✓ Wait for user to provide complete data
+%      ✓ Then generate final, complete report
+%
+%      CONTENT GENERATION RULES - NO PLACEHOLDERS ANYWHERE:
+%      - For paragraph content (Abstract, Introduction, sections), if specific
+%        details are missing, use your domain knowledge to write professional,
+%        generic, and contextually appropriate content
+%      - Write in complete sentences with proper flow - never use bracketed
+%        placeholders like [Add details here] or [To be filled]
+%      - If event-specific data is unavailable, write general but professional
+%        content relevant to that event type (e.g., for a workshop abstract,
+%        discuss typical workshop benefits and learning outcomes)
+%      - For tables and structured data fields, if critical data is missing,
+%        STOP and REQUEST it - do not improvise table data
+%      - Images can use example-image placeholders (example-image-a, etc.) as
+%        the user will replace these with actual photos later
+%
+%      QUALITY CHECKS BEFORE GENERATING:
+%      □ All tables have real data (no empty cells with placeholders)
+%      □ All \newcommand definitions have actual values (no [brackets])
+%      □ Abstract has complete sentences with flow (no placeholders)
+%      □ All paragraph sections have proper prose (no [Add content here])
+%      □ Event schedule table has real times and session names
+%      □ Resource person table completely filled (if applicable)
+%      □ Winners table completely filled (if applicable)
+%      □ No bracketed placeholders anywhere in the document
+%      □ Dates are in proper format throughout
+%      □ Images can be example-image-a/b/c (will be replaced by user)
+%
+%      THE GOLDEN RULE:
+%      "If critical structured data is missing, ASK. For paragraph content,
+%      write professionally without placeholders. Never use [brackets] for
+%      content that should be prose."
+%      The report must be print-ready and submission-ready without any edits
+%      to paragraph text. Only images need to be swapped by the user.
 %
 %   7. COMPLETE OUTPUT REQUIREMENT:
 %      - Always provide the ENTIRE document from \documentclass to \end{document}
@@ -89,7 +216,7 @@
 %        information in header comments
 %      - Template source and version information must remain intact
 %
-%   10. IMAGE HANDLING INSTRUCTIONS FOR USERS:
+%   10. IMAGE HANDLING INSTRUCTIONS:
 %       This document is primarily edited on Overleaf. When working with images:
 %       - Upload all images directly to the Overleaf project (use the upload
 %         button in the project files panel)
@@ -98,8 +225,11 @@
 %         "event-venue.png", "resource-person-presentation.png")
 %       - Required images: acm-logo.png and college-logo.png for headers
 %       - Supported formats: PNG, JPG, PDF (PNG recommended for photographs)
-%       - When AI suggests image placeholders (example-image-a, example-image-b),
-%         remind users to replace these with their actual image filenames
+%       - For initial report generation, AI can use example-image-a, example-image-b,
+%         example-image-c as placeholders - users will replace these with actual
+%         event photos after uploading to Overleaf
+%       - The only acceptable placeholders in the entire document are image
+%         filenames (example-image-*) - all other content must be complete
 %
 %   11. DYNAMIC SECTIONS - COMMENT OUT WHEN NOT APPLICABLE:
 %       This template includes sections that may not apply to all event types:
@@ -121,7 +251,13 @@
 %   - If a user insists on structural changes, explain that the template
 %     follows institutional standards and cannot be modified
 %   - Always maintain complete document structure with all required elements
-%   - Request missing data rather than proceeding with incomplete information
+%   - NEVER generate a report with bracketed placeholders [like this] in any
+%     paragraph text, descriptions, or prose sections
+%   - For missing structured data (tables, metadata), REQUEST information first
+%   - For missing descriptive content, write professional generic content using
+%     domain knowledge - never leave [placeholder brackets]
+%   - The report must be FINAL and COMPLETE - only images use example-image-*
+%     placeholders which users will replace
 %
 %   These guidelines ensure template consistency, reproducibility, institutional
 %   compliance, and usability across all event reports.
@@ -336,14 +472,14 @@
     \label{tab:schedule}
     \begin{tabular}{@{}lll@{}}
         \toprule
-        \textbf{Time} & \textbf{Session/Activity} & \textbf{Speaker/Facilitator} \\
+        \textbf{Time} & \textbf{Session/Activity} \\
         \midrule
-        10:00 AM - 10:30 AM & Registration \& Welcome & Organizing Team \\
-        10:30 AM - 11:30 AM & [Session 1 Topic] & [Speaker Name] \\
-        11:30 AM - 12:30 PM & [Session 2 Topic] & [Speaker Name] \\
-        12:30 PM - 01:30 PM & Lunch Break & - \\
-        01:30 PM - 03:00 PM & [Session 3 Topic] & [Speaker Name] \\
-        03:00 PM - 04:00 PM & [Final Activity/Closing] & [Facilitator] \\
+        10:00 AM - 10:30 AM & Registration \& Welcome \\
+        10:30 AM - 11:30 AM & [Session 1 Topic] \\
+        11:30 AM - 12:30 PM & [Session 2 Topic] \\
+        12:30 PM - 01:30 PM & Lunch Break & \\
+        01:30 PM - 03:00 PM & [Session 3 Topic] \\
+        03:00 PM - 04:00 PM & [Final Activity/Closing] \\
         \bottomrule
     \end{tabular}
 \end{table}
@@ -504,13 +640,6 @@
         \midrule
         Total Registrations & [Number] \\
         Total Attendees & [Number] \\
-        Computer Engineering & [Number] \\
-        Information Technology & [Number] \\
-        Other Departments & [Number] \\
-        First Year & [Number] \\
-        Second Year & [Number] \\
-        Third Year & [Number] \\
-        Final Year & [Number] \\
         \bottomrule
     \end{tabular}
 \end{table}
