@@ -1,7 +1,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 %   IOIT ACM Event Report LaTeX Template
-%   Version 1.0.1
+%   Version 1.1.0
 %
 %   Professional template for AISSMS IOIT ACM Student Chapter event reports.
 %   This template provides a structured, clean layout for event reports including
@@ -217,7 +217,7 @@
 \usepackage[T1]{fontenc}
 
 % --- Page Layout and Geometry ---
-\usepackage[left=2.5cm, right=2.5cm, top=3.5cm, bottom=3cm, headheight=75pt]{geometry}
+\usepackage[left=2cm, right=2cm, top=3.5cm, bottom=2.5cm, headheight=75pt]{geometry}
 
 % --- Essential Packages ---
 \usepackage{graphicx}
@@ -235,6 +235,7 @@
 \usepackage{amsmath, amssymb}
 \usepackage{url}
 \usepackage{longtable}
+\usepackage{tabularx}
 
 %===============================================================================
 %   2. DOCUMENT AND METADATA CONFIGURATION
@@ -410,9 +411,7 @@
 
 \begin{table}[h]
     \centering
-    \caption{Event Schedule}
-    \label{tab:schedule}
-    \begin{tabular}{@{}lll@{}}
+    \begin{tabularx}{\textwidth}{@{}lX@{}}
         \toprule
         \textbf{Time} & \textbf{Session/Activity} \\
         \midrule
@@ -423,7 +422,9 @@
         01:30 PM - 03:00 PM & [Session 3 Topic] \\
         03:00 PM - 04:00 PM & [Final Activity/Closing] \\
         \bottomrule
-    \end{tabular}
+    \end{tabularx}
+	\caption{Event Schedule}
+	\label{tab:schedule}
 \end{table}
 
 %-------------------------------------------------------------------------------
@@ -449,9 +450,7 @@
 
 \begin{table}[h]
     \centering
-    \caption{Details of Industry Expert / Resource Person}
-    \label{tab:resource_person}
-    \begin{tabular}{|p{0.35\textwidth}|p{0.60\textwidth}|}
+    \begin{tabularx}{\textwidth}{@{}lX@{}}
         \hline
         \textbf{Name} & [Full Name of Resource Person] \\
         \hline
@@ -463,14 +462,13 @@
         \hline
         \textbf{Area of Expertise} & [e.g., Machine Learning, Web Development, Cloud Computing, Cybersecurity, etc.] \\
         \hline
-    \end{tabular}
+    \end{tabularx}
+	\caption{Details of Industry Expert / Resource Person}
+	\label{tab:resource_person}
 \end{table}
 
 % If multiple resource persons, duplicate the table:
 % \begin{table}[h]
-%     \centering
-%     \caption{Details of Resource Person 2}
-%     \label{tab:resource_person2}
 %     [Same table structure as above]
 % \end{table}
 
@@ -499,9 +497,7 @@
 
 \begin{table}[h]
     \centering
-    \caption{Competition Winners}
-    \label{tab:winners}
-    \begin{tabular}{|c|p{0.30\textwidth}|p{0.25\textwidth}|p{0.25\textwidth}|}
+	\begin{tabularx}{\textwidth}{@{}cX X@{}}
         \hline
         \textbf{Position} & \textbf{Name/Team Name} & \textbf{Department/Year} \\
         \hline
@@ -512,7 +508,9 @@
         3rd Place & [Winner Name/Team] & [Dept/Year] \\
         \hline
         % Add more rows for special mentions, consolation prizes, etc.
-    \end{tabular}
+    \end{tabularx}
+	\caption{Competition Winners}
+	\label{tab:winners}
 \end{table}
 
 %-------------------------------------------------------------------------------
@@ -545,16 +543,16 @@
 
 \begin{table}[h]
     \centering
-    \caption{Participation Statistics}
-    \label{tab:participation}
-    \begin{tabular}{@{}lc@{}}
+	\begin{tabularx}{\textwidth}{@{}l c@{}}
         \toprule
         \textbf{Category} & \textbf{Count} \\
         \midrule
         Total Registrations & [Number] \\
         Total Attendees & [Number] \\
         \bottomrule
-    \end{tabular}
+    \end{tabularx}
+	\caption{Participation Statistics}
+	\label{tab:participation}
 \end{table}
 
 %-------------------------------------------------------------------------------
@@ -642,13 +640,13 @@
 
 \begin{figure}[h]
     \centering
-    \begin{subfigure}{0.48\textwidth}
+    \begin{subfigure}{0.4\textwidth}
         \includegraphics[width=\linewidth]{2.jpeg}
         \caption{[Caption for first image]}
         \label{fig:glimpse1}
     \end{subfigure}
     \hfill
-    \begin{subfigure}{0.48\textwidth}
+    \begin{subfigure}{0.4\textwidth}
         \includegraphics[width=\linewidth]{3.jpeg}
         \caption{[Caption for second image]}
         \label{fig:glimpse2}
@@ -700,7 +698,7 @@ We would like to express our sincere gratitude to:
 %===============================================================================
 %   SUBMISSION BLOCK
 %===============================================================================
-\newpage
+\clearpage
 \vfill
 \begin{flushleft}
     \large
