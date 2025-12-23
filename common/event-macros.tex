@@ -44,11 +44,11 @@
 % --- Custom Title Page Command ---
 \newcommand{\makecustomtitle}{%
 \ifstandalone
-    \begin{titlepage}
-    \thispagestyle{empty}
+    \begin{titlepage} % Standalone uses standard titlepage (resets counter)
 \else
     \clearpage
-    \thispagestyle{fancy}
+    \thispagestyle{noheader}
+    \begin{minipage}[t][\textheight][t]{\textwidth} % Use a minipage to simulate titlepage height
 \fi
 
     \centering
@@ -79,22 +79,21 @@
 \ifstandalone
     \end{titlepage}
 \else
-    \newpage
+    \end{minipage}
+    \clearpage
 \fi
 }
 
 % --- Conditional Front Matter Commands ---
 \newcommand{\makeconditionalfrontmatter}{%
 \ifstandalone
-    \pagenumbering{roman}
+    \pagenumbering{arabic}
     \tableofcontents
     \listoffigures
     \listoftables
     \clearpage
-    \pagenumbering{arabic}
-    \setcounter{page}{1}
 \else
-    % Do absolutely nothing in Annual Mode to maintain pagination and suppress indices
+    % supress everything
 \fi
 }
 
