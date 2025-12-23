@@ -1,208 +1,129 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 %   IOIT ACM Event Report LaTeX Template
-%   Version 1.1.0
+%   Version 1.2.0
 %
 %   Professional template for AISSMS IOIT ACM Student Chapter event reports.
-%   This template provides a structured, clean layout for event reports including
-%   workshops, competitions, seminars, hackathons, and other ACM activities.
-%
 %   Template: https://www.overleaf.com/read/nrdxngxxjqqp#a08899
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
-%   INSTRUCTIONS FOR AI LANGUAGE MODELS
+%   INSTRUCTION HEADER — READ BEFORE EDITING
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 %   DOCUMENT STATE DETECTION
 %
-%   Before proceeding, analyze the document content to determine its state:
+%   This document exists in exactly one of two states:
 %
-%   STATE 1 - Template Mode:
-%   Indicators:
-%   - Section bodies contain generic placeholder text in [brackets]
-%   - Instructional comments explaining what to write are present
-%   - Table cells contain example/placeholder data like "[Full Name of Resource Person]"
-%   - Abstract/Introduction sections contain instructional text rather than actual content
-%   - \newcommand definitions contain placeholder values like "DD/MM/YYYY" or "Event Name/Title Goes Here"
+%   STATE 1 — TEMPLATE MODE
+%   Identified by: Placeholder text in [brackets], instructional comments,
+%   example table data, generic \newcommand values (DD/MM/YYYY, Event Name/Title)
+%   Action: Generate complete event report following Generation Protocol
 %
-%   Action: Follow REPORT GENERATION PROTOCOL below.
+%   STATE 2 — COMPLETED REPORT MODE
+%   Identified by: Real event content, populated tables with actual data,
+%   specific event details in abstract/introduction, removal of placeholders
+%   Action: Apply only explicitly requested updates following Update Protocol
 %
-%   STATE 2 - Completed Report Mode:
-%   Indicators:
-%   - Section bodies contain coherent, event-specific narrative prose
-%   - Tables are populated with real data (actual names, dates, organizations)
-%   - Abstract describes a specific event with concrete details
-%   - \newcommand definitions contain actual event information
-%   - No instructional comments remain in section bodies
-%   - Content flows naturally and describes a real, completed event
-%
-%   Action: Follow REPORT UPDATE PROTOCOL below.
-%
-%   Decision Rule: If uncertain, treat as Template Mode. Read the Abstract and
-%   Introduction sections - if they contain real event descriptions with specific
-%   details, dates, and outcomes, it's a Completed Report. If they contain
-%   instructions or generic placeholders, it's Template Mode.
+%   DEFAULT RULE: If uncertain, treat as Template Mode.
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
-%   REPORT GENERATION PROTOCOL
+%   NON-NEGOTIABLE RULES
 %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-%   CRITICAL OUTPUT REQUIREMENT FOR GENERATED REPORTS:
-%
-%   When generating a complete report from template, you include the report update protocal
-%   entire instruction block and mention all report update protocal update rules.
-%   include the document structure rule as well. document structure rule should always
-%   be retained as well without any changes.
-%
-%   This ensures that future modifications to the generated report can be handled
-%   correctly using the UPDATE protocol.
-%
-%   RULE 1: DATA VERIFICATION REQUIREMENT
-%
-%   Do not generate the report without complete user-provided information.
-%   If any required data is missing, stop and request it explicitly.
-%
-%   CRITICAL: When requesting missing data, output ONLY the list of missing
-%   items. Do not include any other text, explanations, greetings, or comments.
-%   Format: Present missing items as a simple categorized list with no additional
-%   commentary.
-%
-%   RULE 2: REQUIRED DATA CHECKLIST
-%
-%   Universal Requirements (All Event Types):
-%   - Event name, date (DD/MM/YYYY format), venue
-%   - Event head name
-%   - Report author name and submission date
-%   - Total registrations and attendance numbers
-%   - Event objectives and expected outcomes
-%   - Detailed schedule with session timings
-%   - Description of all activities conducted
-%
-%   Workshop/Seminar Specific:
-%   - Resource person: Full name, designation, organization, email
-%   - Resource person: Phone (optional), area of expertise, background
-%   - Topics covered by resource person
-%
-%   Competition Specific:
-%   - Winner details: Names or team names (1st, 2nd, 3rd place)
-%   - Winner details: Department and year
-%   - Prize information
-%   - Judging criteria
-%   - Problem statement or competition format
-%
-%   RULE 3: DATA COLLECTION PROCESS
-%
-%   When data is incomplete:
-%   a. Identify all missing required fields
-%   b. Present missing items as a categorized list
-%   c. Request each piece of information explicitly
-%   d. Output ONLY the missing data list - no other text
-%   e. Wait for complete data before proceeding with generation
-%
-%   RULE 4: DOCUMENT GENERATION STANDARDS
-%
-%   Structure Requirements:
-%   - Preserve all LaTeX structure: \documentclass, packages, custom commands
-%   - Maintain all sections in prescribed order
-%   - Keep \tableofcontents, \listoffigures, \listoftables
-%   - Maintain all instructional comments from section bodies
-%   - Remove all [bracketed placeholders]
-%   - Retain only UPDATE protocol with all rules
-%
-%   Content Requirements:
-%   - Replace all \newcommand definitions with actual user data
-%   - Fill all table cells with real information
-%   - Write professional, formal prose for descriptive sections
-%   - Use image filenames: 1.jpeg, 2.jpeg, 3.jpeg, etc. (sequential numbering)
-%   - Maintain consistent professional tone throughout
-%   - NO EMOJIS anywhere in the generated report
-%
-%   Section Handling:
-%   - Include "Resource Person Details" section for workshops/seminars/guest lectures
-%   - Include "Competition Winners" section for competitions
-%   - Comment out non-applicable sections with brief explanatory note
-%
-%   Output Validation:
-%   - Final document must contain no [bracketed placeholders]
-%   - Final document must contain no instructional comments except this header
-%   - Final document must contain no emojis
-%   - Document must be immediately compilable in LaTeX
-%   - Document must be submission-ready except for image file replacements
-%   - Image references must use sequential numbering: 1.jpeg, 2.jpeg, 3.jpeg
-%   - This instruction block must be present at the top
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-%   REPORT UPDATE PROTOCOL
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-%   Maintain all header block instructions comments as they are, never change
-%   or modify these and maintain all rules in comments.
-%   Retain the document structure notice as well.
-%
-%   - Preserve all LaTeX structure: \documentclass, packages, custom commands
-%   - Maintain all sections in prescribed order
-%   - Keep \tableofcontents, \listoffigures, \listoftables
-%
-%   RULE 1: MINIMAL MODIFICATION PRINCIPLE
-%
-%   Apply surgical updates only. Modify exclusively the requested elements.
-%   Preserve all other content exactly as written.
-%
-%   RULE 2: UPDATE SCOPE IDENTIFICATION
-%
-%   Determine precise modification targets:
-%   - Metadata change: Modify only relevant \newcommand definitions
-%   - Content change: Modify only the specific section or subsection
-%   - Data change: Modify only relevant table cells or list items
-%   - Addition: Insert new content without altering existing content
-%
-%   Examples:
-%   - "Change event date to 15/03/2024" → Modify \newcommand{\reportdate} only
-%   - "Add second prize winner" → Add single row to Competition Winners table
-%   - "Update resource person email" → Modify email cell in Resource Person table
-%   - "Expand outcomes section" → Modify Outcomes and Impact section only
-%
-%   RULE 3: PRESERVATION REQUIREMENTS
-%
-%   Do not modify:
-%   - LaTeX structure, packages, or commands
-%   - Sections not mentioned in update request
-%   - Existing writing style, tone, or voice
-%   - Working code or formatting
-%   - Document organization or section order
-%   - This instruction header block
-%
-%   RULE 4: UPDATE EXECUTION STANDARDS
-%
-%   Process:
-%   a. Identify exact location of required change
-%   b. Apply modification with minimal disruption
-%   c. Maintain stylistic consistency with surrounding content
-%   d. Verify document remains compilable
-%   e. Ensure no emojis are introduced during updates
-%   f. Return complete document from \documentclass to \end{document}
-%   g. Preserve this instruction block at the top
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-%   DOCUMENT STRUCTURE NOTICE
-%
-%   This template structure is institutionally mandated and immutable.
-%
-%   The following elements must never be modified:
+%   The following elements are institutionally mandated and MUST NEVER be modified:
 %   - Document class and package declarations
 %   - Custom command definitions structure
 %   - Section order and required sections
 %   - Front matter (table of contents, lists of figures/tables)
 %   - Title page format and submission block
+%   - This instruction header
 %
-%   For updates: modify only user-requested content within sections.
+%   Violation of these rules invalidates the report for institutional submission.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%   GENERATION PROTOCOL (Template Mode Only)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%   RULE 1: DATA VERIFICATION REQUIREMENT
+%
+%   Do not generate without complete user-provided information.
+%   If data is missing, output ONLY a categorized list of missing items.
+%   No greetings, explanations, or commentary—just the list.
+%
+%   RULE 2: REQUIRED DATA CHECKLIST
+%
+%   Universal (All Events):
+%   - Event name, date (DD/MM/YYYY), venue
+%   - Event head name, report author name, submission date
+%   - Registration and attendance numbers
+%   - Event objectives, expected outcomes, detailed schedule
+%   - Description of all activities conducted
+%
+%   Workshop/Seminar Specific:
+%   - Resource person: Full name, designation, organization, email
+%   - Resource person: Expertise area, background, topics covered
+%
+%   Competition Specific:
+%   - Winner details: Names/team names (1st, 2nd, 3rd)
+%   - Winner details: Department, year, prize information
+%   - Judging criteria, problem statement/format
+%
+%   RULE 3: GENERATION STANDARDS
+%
+%   Structure:
+%   - Preserve all LaTeX structure elements
+%   - Maintain prescribed section order
+%   - Remove all [bracketed placeholders]
+%   - Keep ONLY this instruction header and Update Protocol
+%
+%   Content:
+%   - Replace \newcommand definitions with actual data
+%   - Write professional, formal prose
+%   - Use sequential image filenames: 1.jpeg, 2.jpeg, 3.jpeg
+%   - NO EMOJIS anywhere
+%   - Include/comment out sections based on event type
+%   - Document must be immediately compilable and submission-ready
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%   UPDATE PROTOCOL (Completed Report Mode Only)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%   RULE 1: MINIMAL MODIFICATION PRINCIPLE
+%
+%   Apply surgical updates only. Modify exclusively requested elements.
+%   Preserve all other content exactly as written.
+%
+%   RULE 2: UPDATE SCOPE IDENTIFICATION
+%
+%   Examples:
+%   - "Change event date to 15/03/2024" → Modify \newcommand{\reportdate} only
+%   - "Add second prize winner" → Add single row to winners table only
+%   - "Update resource person email" → Modify email cell only
+%   - "Expand outcomes section" → Modify Outcomes section only
+%
+%   RULE 3: PRESERVATION REQUIREMENTS
+%
+%   Never modify:
+%   - LaTeX structure, packages, commands (per Non-Negotiable Rules)
+%   - Sections not mentioned in update request
+%   - Existing writing style, tone, or voice
+%   - This instruction header
+%
+%   RULE 4: EXECUTION STANDARDS
+%
+%   Process:
+%   a. Identify exact location of required change
+%   b. Apply modification with minimal disruption
+%   c. Maintain stylistic consistency
+%   d. Verify document remains compilable
+%   e. Ensure no emojis introduced
+%   f. Return complete document with this header preserved
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
