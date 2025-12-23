@@ -1,0 +1,10 @@
+*/events/
+
+*.csv
+members-table.tex
+
+bin/
+
+*.jpg
+*.jpeg
+*.png

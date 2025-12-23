@@ -129,6 +129,19 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %===============================================================================
+%   CONTEXT-AWARE WRAPPER
+%===============================================================================
+\ifdefined\annualreportmode
+    % Mode: Annual Report - Preamble is already loaded by the master file.
+\else
+    % Mode: Standalone - Load essential configuration.
+    \documentclass[11pt, a4paper]{article}
+    \input{common/preamble.tex}
+    \input{common/event-macros.tex}
+    \begin{document}
+\fi
+
+%===============================================================================
 %   METADATA
 %===============================================================================
 % This section must be filled by the report author.
@@ -263,16 +276,43 @@
 \section{Glimpses from the Event}
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.8\textwidth]{1.jpeg}
-    \caption{Key session highlights}
-    \label{fig:session}
+    \includegraphics[width=0.8\textwidth]{2025/events/github/1.jpg}
+    \caption{Group picture of all the participants at the workshop with Dr. Meenakshi Thalor and the speaker.}
+    \label{fig:group}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{2025/events/ai workshop/1.jpg}
+        \caption{Participants actively engaged in the hands-on session.}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{2025/events/github/3.jpg}
+        \caption{Resource person delivering the technical session.}
+    \end{subfigure}
+    \caption{Key moments from the workshop.}
+    \label{fig:highlights}
 \end{figure}
 
 \section{Conclusion}
 [Summary and recommendations for future events]
 
 \section*{Acknowledgements}
-We thank Dr. Meenakshi Thalor and the organizing team for their support.
+\addcontentsline{toc}{section}{Acknowledgements}
+
+We would like to express our sincere gratitude to:
+
+\begin{itemize}
+    \item Faculty Coordinator Dr. Meenakshi Thalor, for continuous guidance and support
+    \item College Principal and Management, for providing resources and institutional support
+    \item All resource persons, industry experts, and guest speakers who shared their knowledge
+    \item All ACM Student Chapter office bearers and volunteers for their dedication
+    \item All participating students who made these events successful
+\end{itemize}
 
 %===============================================================================
 %   SUBMISSION BLOCK
