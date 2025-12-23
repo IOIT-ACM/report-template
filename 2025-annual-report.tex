@@ -9,17 +9,19 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %===============================================================================
+%   PREAMBLE AND COMMON CONFIGURATION
+%===============================================================================
+
+\documentclass[11pt, a4paper]{article}
+
+\input{common/preamble.tex}
+\input{common/event-macros.tex}
+
+%===============================================================================
 %   ANNUAL REPORT MODE DECLARATION
 %===============================================================================
 % This flag tells event reports they are being compiled in embedded mode
 \newcommand{\annualreportmode}{}
-
-%===============================================================================
-%   PREAMBLE AND COMMON CONFIGURATION
-%===============================================================================
-
-% Load common preamble (packages and configurations)
-\input{common/preamble.tex}
 
 %===============================================================================
 %   ANNUAL REPORT METADATA
@@ -31,56 +33,19 @@
 \newcommand{\annualsubmissiondate}{\today}
 
 %===============================================================================
-%   CUSTOM ANNUAL REPORT TITLE PAGE
-%===============================================================================
-
-\newcommand{\makeannualtitle}{
-\begin{titlepage}
-\centering
-\thispagestyle{empty}
-
-\noindent
-\makebox[0.32\textwidth][l]{%
-    \includegraphics[height=2.4cm]{acm-logo.png}
-}%
-\makebox[0.36\textwidth][c]{%
-    \includegraphics[height=2.3cm]{college-logo.png}
-}%
-\makebox[0.32\textwidth][r]{%
-}
-\vspace{2.5cm}
-
-{\Huge \bfseries \annualreporttitle}\\[0.5cm]
-{\Large \academicyear}\\
-\vfill
-
-\begin{flushleft}
-\large
-\begin{tabular}{@{}l@{\quad}l}
-\textbf{PREPARED BY:} & \reportpreparedby \\
-\textbf{INSTITUTION:} & AISSMS Institute of Information Technology \\
-\textbf{SUBMISSION DATE:} & \annualsubmissiondate \\
-\end{tabular}
-\end{flushleft}
-
-\vfill
-\end{titlepage}
-}
-
-%===============================================================================
-%   LOAD EVENT MACROS
-%===============================================================================
-
-\input{common/event-macros.tex}
-
-%===============================================================================
 %   DOCUMENT BODY
 %===============================================================================
 
 \begin{document}
 
+%===============================================================================
+%   CUSTOM ANNUAL REPORT TITLE PAGE
+%===============================================================================
+
+\include{templates/annual-report-title}
+
 % --- Front Matter ---
-\pagenumbering{roman}
+\pagenumbering{arabic}
 \newpage
 
 % Executive Summary
@@ -93,19 +58,7 @@ This annual report presents a comprehensive overview of all events and activitie
 
 \newpage
 
-% Table of Contents
-\tableofcontents
-\newpage
-
-% Optional: List of Figures and Tables
-% Uncomment if you want global lists across all events
-% \listoffigures
-% \newpage
-% \listoftables
-% \newpage
-
-% --- Main Content (Continuous pagination) ---
-\pagenumbering{arabic}
+% TODO: BUILD A TABLE OF CONTENTS
 
 %===============================================================================
 %   CHAPTER/SECTION: INTRODUCTION
@@ -125,8 +78,8 @@ The AISSMS IOIT ACM Student Chapter is dedicated to fostering technical excellen
 
 The following sections contain detailed reports for each event conducted during the academic year. Each event report provides comprehensive information about objectives, execution, participation, outcomes, and impact.
 
-\input{2025/events/ai workshop/index}
 \input{2025/events/github/index}
+\input{2025/events/buildonsui/index}
 
 %===============================================================================
 %   CHAPTER/SECTION: OVERALL IMPACT AND ACHIEVEMENTS
@@ -144,21 +97,6 @@ Throughout the academic year, the ACM Student Chapter successfully:
     \item Facilitated industry interactions through [number] expert sessions
     \item Awarded [number] students in various competitions
     \item Built a strong technical community with enhanced collaboration
-\end{itemize}
-
-%===============================================================================
-%   CHAPTER/SECTION: CHALLENGES AND LESSONS LEARNED
-%===============================================================================
-
-\section{Challenges and Lessons Learned}
-
-[Discuss challenges faced during the year and key learnings for future improvement]
-
-\begin{itemize}
-    \item Challenge 1: [Description and how it was addressed]
-    \item Challenge 2: [Description and how it was addressed]
-    \item Lesson learned 1: [Key takeaway]
-    \item Lesson learned 2: [Key takeaway]
 \end{itemize}
 
 %===============================================================================
