@@ -1,0 +1,222 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%   IOIT ACM ANNUAL REPORT TEMPLATE
+%   Version 2.0.0
+%
+%   This template aggregates all individual event reports into a single
+%   annual report with continuous pagination and global indices.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%===============================================================================
+%   ANNUAL REPORT MODE DECLARATION
+%===============================================================================
+% This flag tells event reports they are being compiled in embedded mode
+\newcommand{\annualreportmode}{}
+
+%===============================================================================
+%   PREAMBLE AND COMMON CONFIGURATION
+%===============================================================================
+
+% Load common preamble (packages and configurations)
+\input{common/preamble.tex}
+
+%===============================================================================
+%   ANNUAL REPORT METADATA
+%===============================================================================
+
+\newcommand{\annualreporttitle}{AISSMS IOIT ACM Student Chapter Annual Report}
+\newcommand{\academicyear}{Academic Year 2024-2025}
+\newcommand{\reportpreparedby}{ACM Student Chapter Executive Committee}
+\newcommand{\annualsubmissiondate}{\today}
+
+%===============================================================================
+%   CUSTOM ANNUAL REPORT TITLE PAGE
+%===============================================================================
+
+\newcommand{\makeannualtitle}{
+\begin{titlepage}
+\centering
+\thispagestyle{empty}
+
+\noindent
+\makebox[0.32\textwidth][l]{%
+    \includegraphics[height=2.4cm]{acm-logo.png}
+}%
+\makebox[0.36\textwidth][c]{%
+    \includegraphics[height=2.3cm]{college-logo.png}
+}%
+\makebox[0.32\textwidth][r]{%
+}
+\vspace{2.5cm}
+
+{\Huge \bfseries \annualreporttitle}\\[0.5cm]
+{\Large \academicyear}\\
+\vfill
+
+\begin{flushleft}
+\large
+\begin{tabular}{@{}l@{\quad}l}
+\textbf{PREPARED BY:} & \reportpreparedby \\
+\textbf{INSTITUTION:} & AISSMS Institute of Information Technology \\
+\textbf{SUBMISSION DATE:} & \annualsubmissiondate \\
+\end{tabular}
+\end{flushleft}
+
+\vfill
+\end{titlepage}
+}
+
+%===============================================================================
+%   LOAD EVENT MACROS
+%===============================================================================
+
+\input{common/event-macros.tex}
+
+%===============================================================================
+%   DOCUMENT BODY
+%===============================================================================
+
+\begin{document}
+
+% --- Front Matter ---
+\pagenumbering{roman}
+\newpage
+
+% Executive Summary
+\section*{Executive Summary}
+\addcontentsline{toc}{section}{Executive Summary}
+
+[Provide a brief overview of the academic year's activities, key achievements, total number of events conducted, total participation, and overall impact of the ACM Student Chapter]
+
+This annual report presents a comprehensive overview of all events and activities conducted by the AISSMS IOIT ACM Student Chapter during the academic year 2024-2025. The chapter successfully organized [X] events with a total participation of [Y] students across various domains including workshops, seminars, competitions, and technical sessions.
+
+\newpage
+
+% Table of Contents
+\tableofcontents
+\newpage
+
+% Optional: List of Figures and Tables
+% Uncomment if you want global lists across all events
+% \listoffigures
+% \newpage
+% \listoftables
+% \newpage
+
+% --- Main Content (Continuous pagination) ---
+\pagenumbering{arabic}
+
+%===============================================================================
+%   CHAPTER/SECTION: INTRODUCTION
+%===============================================================================
+
+\section{Introduction}
+
+[Provide context about the ACM Student Chapter, its mission, vision, and objectives for the academic year]
+
+The AISSMS IOIT ACM Student Chapter is dedicated to fostering technical excellence, innovation, and professional development among students. Throughout the academic year 2024-2025, the chapter organized a diverse range of events aimed at enhancing technical skills, promoting industry interaction, and building a vibrant learning community.
+
+%===============================================================================
+%   CHAPTER/SECTION: DETAILED EVENT REPORTS
+%===============================================================================
+
+\section{Detailed Event Reports}
+
+The following sections contain detailed reports for each event conducted during the academic year. Each event report provides comprehensive information about objectives, execution, participation, outcomes, and impact.
+
+\input{2025/events/ai workshop/index}
+\input{2025/events/github/index}
+
+%===============================================================================
+%   CHAPTER/SECTION: OVERALL IMPACT AND ACHIEVEMENTS
+%===============================================================================
+
+\section{Overall Impact and Achievements}
+
+[Summarize the collective impact of all events, key achievements, statistical highlights, and overall contribution to student development]
+
+Throughout the academic year, the ACM Student Chapter successfully:
+
+\begin{itemize}
+    \item Conducted [X] technical events with [Y] total participants
+    \item Provided hands-on training in [list key technical domains]
+    \item Facilitated industry interactions through [number] expert sessions
+    \item Awarded [number] students in various competitions
+    \item Built a strong technical community with enhanced collaboration
+\end{itemize}
+
+%===============================================================================
+%   CHAPTER/SECTION: CHALLENGES AND LESSONS LEARNED
+%===============================================================================
+
+\section{Challenges and Lessons Learned}
+
+[Discuss challenges faced during the year and key learnings for future improvement]
+
+\begin{itemize}
+    \item Challenge 1: [Description and how it was addressed]
+    \item Challenge 2: [Description and how it was addressed]
+    \item Lesson learned 1: [Key takeaway]
+    \item Lesson learned 2: [Key takeaway]
+\end{itemize}
+
+%===============================================================================
+%   CHAPTER/SECTION: FUTURE PLANS AND RECOMMENDATIONS
+%===============================================================================
+
+\section{Future Plans and Recommendations}
+
+[Outline plans for the next academic year and recommendations for continued growth]
+
+Based on this year's experiences, the following plans and recommendations are proposed for the next academic year:
+
+\begin{enumerate}
+    \item Expand the scope of technical workshops to include emerging technologies
+    \item Strengthen industry partnerships for better placement opportunities
+    \item Increase student participation through targeted outreach programs
+    \item Introduce more competitive events to foster innovation
+    \item Develop a mentorship program connecting seniors with juniors
+\end{enumerate}
+
+%===============================================================================
+%   CHAPTER/SECTION: ACKNOWLEDGEMENTS
+%===============================================================================
+
+\section*{Acknowledgements}
+\addcontentsline{toc}{section}{Acknowledgements}
+
+We would like to express our sincere gratitude to:
+
+\begin{itemize}
+    \item Faculty Coordinator Dr. Meenakshi Thalor, for continuous guidance and support throughout the year
+    \item College Principal and Management, for providing resources and institutional support
+    \item All resource persons, industry experts, and guest speakers who shared their knowledge
+    \item All ACM Student Chapter office bearers and volunteers for their dedication
+    \item All participating students who made these events successful
+    \item Sponsoring organizations and partners for their generous support
+\end{itemize}
+
+%===============================================================================
+%   SUBMISSION BLOCK
+%===============================================================================
+
+\clearpage
+\vfill
+\begin{flushleft}
+    \large
+    \textbf{ANNUAL REPORT PREPARED BY:} \\
+    \vspace{0.5cm}
+    \reportpreparedby \\
+    AISSMS IOIT ACM Student Chapter \\
+    \vspace{2cm}
+    \rule{8cm}{0.4pt} \\
+    (Authorized Signature) \\
+    \vspace{1cm}
+    \textbf{Date:} \annualsubmissiondate
+\end{flushleft}
+
+\end{document}
+%===============================================================================
+%   END OF ANNUAL REPORT
+%===============================================================================

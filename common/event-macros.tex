@@ -1,0 +1,86 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%   EVENT REPORT MACROS
+%   Conditional compilation macros for standalone vs. embedded mode
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% --- Mode Detection ---
+% If \annualreportmode is NOT defined, we are in standalone mode
+\newif\ifstandalone
+\ifdefined\annualreportmode
+    \standalonefalse
+\else
+    \standalonetrue
+\fi
+
+% --- Custom Title Page Command ---
+\newcommand{\makecustomtitle}{%
+\ifstandalone
+\begin{titlepage}
+\centering
+\thispagestyle{empty}
+
+\noindent
+\makebox[0.32\textwidth][l]{%
+    \includegraphics[height=2.4cm]{acm-logo.png}
+}%
+\makebox[0.36\textwidth][c]{%
+    \includegraphics[height=2.3cm]{college-logo.png}
+}%
+\makebox[0.32\textwidth][r]{%
+}
+\vspace{2.5cm}
+
+{\Large \textbf{AISSMS IOIT ACM Student Chapter Event Report}}\\[0.5cm]
+{\Huge \bfseries \reporttopic}\\
+\vfill
+
+\begin{flushleft}
+\large
+\begin{tabular}{@{}l@{\quad}l}
+\textbf{EVENT DATE:} & \reportdate \\
+\textbf{VENUE:} & \reportvenue \\
+\textbf{ORGANIZED BY:} & \reportorganizer \\
+\textbf{Event Head:} & \eventhead \\
+% \textbf{IN COLLABORATION WITH:} & \reportcollaboration \\ % Uncomment if applicable
+\end{tabular}
+\end{flushleft}
+
+\vfill
+\end{titlepage}
+\fi
+}
+
+% --- Conditional Front Matter Commands ---
+\newcommand{\makeconditionalfrontmatter}{%
+\ifstandalone
+    \pagenumbering{roman}
+    \newpage
+    \tableofcontents
+    \listoffigures
+    \listoftables
+    \newpage
+    \pagenumbering{arabic}
+\fi
+}
+
+% --- Conditional Submission Block ---
+\newcommand{\makesubmissionblock}{%
+\ifstandalone
+\clearpage
+\vfill
+\begin{flushleft}
+    \large
+    \textbf{REPORT SUBMITTED BY:} \\
+    \vspace{0.5cm}
+    \reportauthor \\
+    AISSMS IOIT ACM Student Chapter \\
+    \vspace{2cm}
+    \rule{8cm}{0.4pt} \\
+    (Signature) \\
+    \vspace{1cm}
+    \textbf{Date:} \submissiondate
+\end{flushleft}
+\fi
+}

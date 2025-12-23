@@ -1,0 +1,56 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%   COMMON PREAMBLE FOR IOIT ACM EVENT REPORTS
+%   This file contains all shared package declarations and configurations
+%   Used by both standalone event reports and the annual report
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% --- Font and Encoding ---
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+% --- Page Layout and Geometry ---
+\usepackage[left=2cm, right=2cm, top=3.5cm, bottom=2.5cm, headheight=75pt]{geometry}
+
+% --- Essential Packages ---
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{hyperref}
+\usepackage{xcolor}
+
+% --- Content and Formatting Packages ---
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{amsmath, amssymb}
+\usepackage{url}
+\usepackage{longtable}
+\usepackage{tabularx}
+
+% --- Hyperlink Setup ---
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,
+    urlcolor=cyan,
+    pdftitle={ACM Event Report},
+    pdfauthor={AISSMS IOIT ACM Student Chapter},
+    pdfsubject={Event Report}
+}
+
+% --- Header and Footer Configuration ---
+\pagestyle{fancy}
+\fancyhf{}
+
+% Header Definition
+\fancyhead[L]{\raisebox{0.3cm}{\includegraphics[height=1.5cm]{acm-logo.png}}}
+\fancyhead[C]{\raisebox{0.2cm}{\includegraphics[height=2cm]{college-logo.png}}}
+\renewcommand{\headrulewidth}{0.4pt}
+
+% Footer Definition
+\fancyfoot[C]{\thepage}
+\renewcommand{\footrulewidth}{0pt}
