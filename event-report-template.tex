@@ -128,30 +128,31 @@
 \documentclass[11pt, a4paper]{article}
 
 %===============================================================================
-%   PREAMBLE AND MACROS
+%   CONTEXT-AWARE WRAPPER
 %===============================================================================
+\ifdefined\annualreportmode
+    % If in Annual Report mode, do nothing (preamble is already loaded)
+\else
+    % If Standalone, define document class and load preamble
+    \documentclass[11pt, a4paper]{article}
+    \input{common/preamble.tex}
+    \input{common/event-macros.tex}
 
-\input{common/preamble.tex}
-\input{common/event-macros.tex}
+    % Standalone Metadata (Contributors edit these)
+    \newcommand{\reporttopic}{Event Name/Title Goes Here}
+    \newcommand{\reportdate}{DD/MM/YYYY}
+    \newcommand{\reportvenue}{AISSMS Institute of Information Technology}
+    \newcommand{\reportorganizer}{AISSMS IOIT ACM Student Chapter}
+    \newcommand{\eventhead}{Name of Event head}
+    \newcommand{\reportauthor}{Report Author Name}
+    \newcommand{\submissiondate}{DD/MM/YYYY}
+
+    \begin{document}
+\fi
 
 %===============================================================================
-%   EVENT METADATA (CUSTOMIZE THESE)
+%   REPORT CONTENT (Shared by both modes)
 %===============================================================================
-
-\newcommand{\reporttopic}{Event Name/Title Goes Here}
-\newcommand{\reportdate}{DD/MM/YYYY}
-\newcommand{\reportvenue}{AISSMS Institute of Information Technology}
-\newcommand{\reportorganizer}{AISSMS IOIT ACM Student Chapter}
-\newcommand{\eventhead}{Name of Event head}
-\newcommand{\reportcollaboration}{Collaboration Partner (if any)}
-\newcommand{\reportauthor}{Report Author Name}
-\newcommand{\submissiondate}{DD/MM/YYYY}
-
-%===============================================================================
-%   DOCUMENT BODY
-%===============================================================================
-
-\begin{document}
 
 \makecustomtitle
 \makeconditionalfrontmatter
@@ -523,7 +524,11 @@ We would like to express our sincere gratitude to:
 
 \makesubmissionblock
 
-\end{document}
 %===============================================================================
-%   END OF DOCUMENT
+%   CONTEXT-AWARE CLOSER
 %===============================================================================
+\ifdefined\annualreportmode
+    \clearpage % Just end the page in Annual Report
+\else
+    \end{document} % Properly close the PDF in Standalone
+\fi

@@ -1,7 +1,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 %   IOIT ACM ANNUAL REPORT TEMPLATE
-%   Version 2.0.0
+%   Version 2.1.0
 %
 %   This template aggregates all individual event reports into a single
 %   annual report with continuous pagination and global indices.
@@ -20,21 +20,18 @@
 %===============================================================================
 %   ANNUAL REPORT MODE DECLARATION
 %===============================================================================
-% This flag tells event reports they are being compiled in embedded mode
+% This flag tells event reports they are being compiled in embedded mode.
+% It triggers the suppression of local TOCs and enables section resetting.
 \newcommand{\annualreportmode}{}
+\def\annualreportmode{}
 
 %===============================================================================
-%   ANNUAL REPORT METADATA
+%   ANNUAL REPORT HEADER CONFIGURATION
 %===============================================================================
 
-\newcommand{\annualreporttitle}{AISSMS IOIT ACM Student Chapter Annual Report}
-\newcommand{\academicyear}{Academic Year 2024-2025}
-\newcommand{\reportpreparedby}{ACM Student Chapter Executive Committee}
-\newcommand{\annualsubmissiondate}{\today}
-
-%===============================================================================
-%   DOCUMENT BODY
-%===============================================================================
+% TODO: First page should have college logo on the top of the page
+%       and on the center i want to write chapter name and below it write
+%       "annual report"
 
 \begin{document}
 
@@ -44,29 +41,21 @@
 
 \include{templates/annual-report-title}
 
-% --- Front Matter ---
-\pagenumbering{arabic}
 \newpage
 
 % Executive Summary
 \section*{Executive Summary}
 \addcontentsline{toc}{section}{Executive Summary}
 
-[Provide a brief overview of the academic year's activities, key achievements, total number of events conducted, total participation, and overall impact of the ACM Student Chapter]
-
 This annual report presents a comprehensive overview of all events and activities conducted by the AISSMS IOIT ACM Student Chapter during the academic year 2024-2025. The chapter successfully organized [X] events with a total participation of [Y] students across various domains including workshops, seminars, competitions, and technical sessions.
 
 \newpage
-
-% TODO: BUILD A TABLE OF CONTENTS
 
 %===============================================================================
 %   CHAPTER/SECTION: INTRODUCTION
 %===============================================================================
 
 \section{Introduction}
-
-[Provide context about the ACM Student Chapter, its mission, vision, and objectives for the academic year]
 
 The AISSMS IOIT ACM Student Chapter is dedicated to fostering technical excellence, innovation, and professional development among students. Throughout the academic year 2024-2025, the chapter organized a diverse range of events aimed at enhancing technical skills, promoting industry interaction, and building a vibrant learning community.
 
@@ -76,18 +65,23 @@ The AISSMS IOIT ACM Student Chapter is dedicated to fostering technical excellen
 
 \section{Detailed Event Reports}
 
-The following sections contain detailed reports for each event conducted during the academic year. Each event report provides comprehensive information about objectives, execution, participation, outcomes, and impact.
+The following sections contain detailed reports for each event conducted during the academic year.
 
-\input{2025/events/github/index}
-\input{2025/events/buildonsui/index}
+\begin{itemize}
+    \item \textbf{Note on Structure:} To preserve the integrity of the original event reports, section numbering (1, 2, 3...) resets at the start of each individual report.
+    \item \textbf{Navigation:} All events are indexed in the main Table of Contents above.
+\end{itemize}
+
+\newpage
+
+\includeevent{2025/events/github/index}
+\includeevent{2025/events/buildonsui/index}
 
 %===============================================================================
 %   CHAPTER/SECTION: OVERALL IMPACT AND ACHIEVEMENTS
 %===============================================================================
 
 \section{Overall Impact and Achievements}
-
-[Summarize the collective impact of all events, key achievements, statistical highlights, and overall contribution to student development]
 
 Throughout the academic year, the ACM Student Chapter successfully:
 
@@ -104,8 +98,6 @@ Throughout the academic year, the ACM Student Chapter successfully:
 %===============================================================================
 
 \section{Future Plans and Recommendations}
-
-[Outline plans for the next academic year and recommendations for continued growth]
 
 Based on this year's experiences, the following plans and recommendations are proposed for the next academic year:
 
@@ -127,12 +119,11 @@ Based on this year's experiences, the following plans and recommendations are pr
 We would like to express our sincere gratitude to:
 
 \begin{itemize}
-    \item Faculty Coordinator Dr. Meenakshi Thalor, for continuous guidance and support throughout the year
+    \item Faculty Coordinator Dr. Meenakshi Thalor, for continuous guidance and support
     \item College Principal and Management, for providing resources and institutional support
     \item All resource persons, industry experts, and guest speakers who shared their knowledge
     \item All ACM Student Chapter office bearers and volunteers for their dedication
     \item All participating students who made these events successful
-    \item Sponsoring organizations and partners for their generous support
 \end{itemize}
 
 %===============================================================================
@@ -149,7 +140,7 @@ We would like to express our sincere gratitude to:
     AISSMS IOIT ACM Student Chapter \\
     \vspace{2cm}
     \rule{8cm}{0.4pt} \\
-    (Authorized Signature) \\
+    (Signature) \\
     \vspace{1cm}
     \textbf{Date:} \annualsubmissiondate
 \end{flushleft}
