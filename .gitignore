@@ -8,3 +8,28 @@ bin/
 *.jpg
 *.jpeg
 *.png
+
+*.pdf
+
+# LaTeX auxiliary files
+*.aux
+*.log
+*.out
+*.toc
+*.lof
+*.lot
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+
+# Bibliography
+*.bbl
+*.bcf
+*.blg
+*.run.xml
+
+# Build directories
+latex.out/
+
+# macOS
+.DS_Store
