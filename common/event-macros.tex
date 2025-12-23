@@ -1,0 +1,117 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%   EVENT REPORT MACROS
+%   Conditional compilation macros for standalone vs. embedded mode
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% --- Mode Detection ---
+\newif\ifstandalone
+\ifdefined\annualreportmode
+    \standalonefalse
+\else
+    \standalonetrue
+\fi
+
+% --- Metadata Placeholder Definitions ---
+% These ensure the commands exist so that individual event reports can
+% update them using \renewcommand without causing errors.
+\newcommand{\reporttopic}{[Event Title]}
+\newcommand{\reportdate}{[DD/MM/YYYY]}
+\newcommand{\reportvenue}{[Venue]}
+\newcommand{\reportorganizer}{[Organizer]}
+\newcommand{\eventhead}{[Event Head]}
+\newcommand{\reportauthor}{[Report Author]}
+\newcommand{\submissiondate}{[Submission Date]}
+\newcommand{\reportcollaboration}{}
+
+% --- Section Reset Logic for Annual Report ---
+% This logic allows each event to start at Section 1 without breaking
+% the Annual Report's global section numbering.
+\newcounter{annualtempsection}
+\newcounter{eventcount}
+
+\newcommand{\includeevent}[1]{%
+    \stepcounter{eventcount}%
+    \setcounter{annualtempsection}{\value{section}}
+    \setcounter{section}{0}
+    \renewcommand{\theHsection}{event.\theeventcount.\arabic{section}}
+    \input{#1}
+    \setcounter{section}{\value{annualtempsection}}
+    \renewcommand{\theHsection}{\arabic{section}}
+}
+
+% --- Custom Title Page Command ---
+\newcommand{\makecustomtitle}{%
+\ifstandalone
+    \begin{titlepage} % Standalone uses standard titlepage (resets counter)
+\else
+    \clearpage
+    \thispagestyle{noheader}
+    \begin{minipage}[t][\textheight][t]{\textwidth} % Use a minipage to simulate titlepage height
+\fi
+
+    \centering
+    \noindent
+    \makebox[0.32\textwidth][l]{\includegraphics[height=2.4cm]{acm-logo.png}}%
+    \makebox[0.36\textwidth][c]{\includegraphics[height=2.3cm]{college-logo.png}}%
+    \makebox[0.32\textwidth][r]{}
+    \vspace{2.5cm}
+
+    {\Large \textbf{AISSMS IOIT ACM Student Chapter Event Report}}\\[0.5cm]
+    {\Huge \bfseries \reporttopic}\\
+    \vfill
+
+    \begin{flushleft}
+    \large
+    \begin{tabular}{@{}l@{\quad}l}
+    \textbf{EVENT DATE:} & \reportdate \\
+    \textbf{VENUE:} & \reportvenue \\
+    \textbf{ORGANIZED BY:} & \reportorganizer \\
+    \ifx\reportcollaboration\empty\else
+    \textbf{IN COLLABORATION WITH:} & \reportcollaboration \\
+    \fi
+    \textbf{Event Head:} & \eventhead \\
+    \end{tabular}
+    \end{flushleft}
+    \vfill
+
+\ifstandalone
+    \end{titlepage}
+\else
+    \end{minipage}
+    \clearpage
+\fi
+}
+
+% --- Conditional Front Matter Commands ---
+\newcommand{\makeconditionalfrontmatter}{%
+\ifstandalone
+    \pagenumbering{arabic}
+    \tableofcontents
+    \listoffigures
+    \listoftables
+    \clearpage
+\else
+    % supress everything
+\fi
+}
+
+% --- Conditional Submission Block ---
+\newcommand{\makesubmissionblock}{%
+\ifstandalone
+\vfill
+\begin{flushleft}
+    \large
+    \textbf{REPORT SUBMITTED BY:} \\
+    \vspace{0.5cm}
+    \reportauthor \\
+    AISSMS IOIT ACM Student Chapter \\
+    \vspace{2cm}
+    \rule{8cm}{0.4pt} \\
+    (Signature) \\
+    \vspace{1cm}
+    \textbf{Date:} \submissiondate
+\end{flushleft}
+\fi
+}

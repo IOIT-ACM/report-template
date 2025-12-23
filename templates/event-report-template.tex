@@ -1,0 +1,290 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%   IOIT ACM Event Report LaTeX Template
+%
+%   Professional template for AISSMS IOIT ACM Student Chapter event reports.
+%   Supports both standalone and annual report compilation modes.
+%   Version 2.1.0
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%   INSTRUCTION HEADER — READ BEFORE EDITING
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%   DOCUMENT STATE DETECTION
+%
+%   This document exists in exactly one of two states:
+%
+%   STATE 1 — TEMPLATE MODE
+%   Identified by: Placeholder text in [brackets], instructional comments,
+%   example table data, generic \renewcommand values (DD/MM/YYYY, Event Name/Title)
+%   Action: Generate complete event report following Generation Protocol
+%
+%   STATE 2 — COMPLETED REPORT MODE
+%   Identified by: Real event content, populated tables with actual data,
+%   specific event details in abstract/introduction, removal of placeholders
+%   Action: Apply only explicitly requested updates following Update Protocol
+%
+%   DEFAULT RULE: If uncertain, treat as Template Mode.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%   NON-NEGOTIABLE RULES
+%
+%   The following elements are institutionally mandated and MUST NEVER be modified:
+%   - Document class and package declarations
+%   - Custom command definitions structure
+%   - Section order and required sections
+%   - This instruction header
+%
+%   Violation of these rules invalidates the report for institutional submission.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%   GENERATION PROTOCOL (Template Mode Only)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%   RULE 1: DATA VERIFICATION REQUIREMENT
+%
+%   Do not generate without complete user-provided information.
+%   If data is missing, output ONLY a categorized list of missing items.
+%   No greetings, explanations, or commentary—just the list.
+%
+%   RULE 2: REQUIRED DATA CHECKLIST
+%
+%   Universal (All Events):
+%   - Event name, date (DD/MM/YYYY), venue
+%   - Event head name, report author name, submission date
+%   - Registration and attendance numbers
+%   - Event objectives, expected outcomes, detailed schedule
+%   - Description of all activities conducted
+%
+%   Workshop/Seminar Specific:
+%   - Resource person: Full name, designation, organization, email
+%   - Resource person: Expertise area, background, topics covered
+%
+%   Competition Specific:
+%   - Winner details: Names/team names (1st, 2nd, 3rd)
+%   - Winner details: Department, year, prize information
+%   - Judging criteria, problem statement/format
+%
+%   RULE 3: GENERATION STANDARDS
+%
+%   Structure:
+%   - Preserve all LaTeX structure elements
+%   - Maintain prescribed section order
+%   - Remove all [bracketed placeholders]
+%   - Keep ONLY this instruction header and Update Protocol
+%
+%   Content:
+%   - Replace \renewcommand definitions with actual data
+%   - Write professional, formal prose
+%   - Use sequential image filenames: 1.jpeg, 2.jpeg, 3.jpeg
+%   - NO EMOJIS anywhere
+%   - Include/comment out sections based on event type
+%   - Document must be immediately compilable and submission-ready
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%   UPDATE PROTOCOL (Completed Report Mode Only)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%   RULE 1: MINIMAL MODIFICATION PRINCIPLE
+%
+%   Apply surgical updates only. Modify exclusively requested elements.
+%   Preserve all other content exactly as written.
+%
+%   RULE 2: UPDATE SCOPE IDENTIFICATION
+%
+%   Examples:
+%   - "Change event date to 15/03/2024" → Modify \renewcommand{\reportdate} only
+%   - "Add second prize winner" → Add single row to winners table only
+%   - "Update resource person email" → Modify email cell only
+%   - "Expand outcomes section" → Modify Outcomes section only
+%
+%   RULE 3: PRESERVATION REQUIREMENTS
+%
+%   Never modify:
+%   - LaTeX structure, packages, commands (per Non-Negotiable Rules)
+%   - Sections not mentioned in update request
+%   - Existing writing style, tone, or voice
+%   - This instruction header
+%
+%   RULE 4: EXECUTION STANDARDS
+%
+%   Process:
+%   a. Identify exact location of required change
+%   b. Apply modification with minimal disruption
+%   c. Maintain stylistic consistency
+%   d. Verify document remains compilable
+%   e. Ensure no emojis introduced
+%   f. Return complete document with this header preserved
+%   2. The content starts after the Context-Aware Wrapper.
+%   3. If this event is NOT a competition, comment out the "Competition Winners" section.
+%   4. If this event is NOT a workshop/seminar, comment out "Resource Person Details".
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%===============================================================================
+%   METADATA
+%===============================================================================
+% This section must be filled by the report author.
+% These values are read by both Standalone and Annual Report modes.
+
+\renewcommand{\reporttopic}{[Event Title]}
+\renewcommand{\reportdate}{[DD/MM/YYYY]}
+\renewcommand{\reportvenue}{[Specific Venue - e.g. Lab 4 or Online via Teams]}
+\renewcommand{\reportorganizer}{AISSMS IOIT ACM Student Chapter}
+\renewcommand{\eventhead}{[Name of Event Head]}
+\renewcommand{\reportauthor}{[Your Name]}
+\renewcommand{\submissiondate}{[DD/MM/YYYY]}
+% Optional: \renewcommand{\reportcollaboration}{Name of Partner Org}
+
+%===============================================================================
+%   CONTEXT-AWARE WRAPPER
+%===============================================================================
+\ifdefined\annualreportmode
+    % Mode: Annual Report - Preamble is already loaded by the master file.
+\else
+    % Mode: Standalone - Load essential configuration.
+    \documentclass[11pt, a4paper]{article}
+    \input{common/preamble.tex}
+    \input{common/event-macros.tex}
+    \begin{document}
+\fi
+
+%===============================================================================
+%   REPORT FRONT MATTER
+%===============================================================================
+% These macros are defined in common/event-macros.tex
+% \makecustomtitle handles the title page (resets page in standalone, continuous in annual)
+% \makeconditionalfrontmatter handles TOC/LOF/LOT (suppressed in annual mode)
+\makecustomtitle
+\makeconditionalfrontmatter
+
+%===============================================================================
+%   MAIN CONTENT
+%===============================================================================
+
+\section{Abstract}
+[Write your abstract here - a concise summary of the event, its objectives, activities conducted, participation, and key outcomes in 150-250 words]
+
+\section{Introduction}
+[Write your introduction here - provide background context, explain why this event was organized, and its relevance to students]
+
+\section{Event Objective}
+[State the main goals and specific objectives of the event - what did you aim to achieve?]
+
+\section{Event Details and Structure}
+[Describe the format, structure, schedule, and organization of the event.]
+
+\subsection{Event Agenda}
+\begin{table}[h]
+    \centering
+    \begin{tabularx}{\textwidth}{@{}lX@{}}
+        \toprule
+        \textbf{Time} & \textbf{Session/Activity} \\
+        \midrule
+        10:00 AM - 10:30 AM & Registration \& Welcome \\
+        10:30 AM - 01:00 PM & Technical Session 1 \\
+        01:00 PM - 02:00 PM & Lunch Break \\
+        02:00 PM - 04:00 PM & Hands-on Session \& Closing \\
+        \bottomrule
+    \end{tabularx}
+	\caption{Event Schedule}
+	\label{tab:schedule}
+\end{table}
+
+%-------------------------------------------------------------------------------
+% DYNAMIC SECTION: RESOURCE PERSON DETAILS
+% (Comment out if not applicable)
+%-------------------------------------------------------------------------------
+\section{Resource Person Details}
+\begin{table}[h]
+    \centering
+    \begin{tabularx}{\textwidth}{@{}lX@{}}
+        \hline
+        \textbf{Name} & [Full Name] \\
+        \hline
+        \textbf{Designation} & [Job Title] \\
+        \hline
+        \textbf{Organization} & [Company Name] \\
+        \hline
+        \textbf{Email ID} & [email@example.com] \\
+        \hline
+        \textbf{Expertise} & [e.g. Cloud Computing] \\
+        \hline
+    \end{tabularx}
+	\caption{Details of Resource Person}
+\end{table}
+
+%-------------------------------------------------------------------------------
+% DYNAMIC SECTION: COMPETITION WINNERS
+% (Comment out if not applicable)
+%-------------------------------------------------------------------------------
+\section{Competition Winners}
+\begin{table}[h]
+    \centering
+	\begin{tabularx}{\textwidth}{@{}cXX@{}}
+        \hline
+        \textbf{Position} & \textbf{Name/Team Name} & \textbf{Department/Year} \\
+        \hline
+        1st Place & [Winner Name] & [Dept/Year] \\
+        \hline
+        2nd Place & [Winner Name] & [Dept/Year] \\
+        \hline
+    \end{tabularx}
+	\caption{Competition Winners}
+\end{table}
+
+\section{Event Execution and Activities}
+[Describe the actual execution - topics covered and participant engagement]
+
+\section{Participation and Engagement}
+\begin{table}[h]
+    \centering
+	\begin{tabularx}{\textwidth}{@{}lc@{}}
+        \toprule
+        \textbf{Category} & \textbf{Count} \\
+        \midrule
+        Total Registrations & [Number] \\
+        Total Attendees & [Number] \\
+        \bottomrule
+    \end{tabularx}
+	\caption{Participation Statistics}
+\end{table}
+
+\section{Outcomes and Impact}
+[Describe what participants learned and the overall success of the event]
+
+\section{Glimpses from the Event}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{1.jpeg}
+    \caption{Key session highlights}
+    \label{fig:session}
+\end{figure}
+
+\section{Conclusion}
+[Summary and recommendations for future events]
+
+\section*{Acknowledgements}
+We thank Dr. Meenakshi Thalor and the organizing team for their support.
+
+%===============================================================================
+%   SUBMISSION BLOCK
+%===============================================================================
+% Suppressed automatically in Annual Report mode via event-macros.tex
+\makesubmissionblock
+
+%===============================================================================
+%   CONTEXT-AWARE CLOSER
+%===============================================================================
+\ifdefined\annualreportmode
+    \clearpage
+\else
+    \end{document}
+\fi
