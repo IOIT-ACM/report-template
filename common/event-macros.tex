@@ -43,15 +43,11 @@
 
 % --- Custom Title Page Command ---
 \newcommand{\makecustomtitle}{%
-% Requirement: Retain descriptive page in both modes.
-% Standalone gets a full titlepage (resets page counter).
-% Annual Report gets a clearpage (preserves continuous pagination).
 \ifstandalone
     \begin{titlepage}
     \thispagestyle{empty}
 \else
     \clearpage
-    \thispagestyle{fancy} % Keep annual report headers/footers
     \thispagestyle{fancy}
 \fi
 
@@ -72,7 +68,6 @@
     \textbf{EVENT DATE:} & \reportdate \\
     \textbf{VENUE:} & \reportvenue \\
     \textbf{ORGANIZED BY:} & \reportorganizer \\
-    % Display collaboration only if it has been provided
     \ifx\reportcollaboration\empty\else
     \textbf{IN COLLABORATION WITH:} & \reportcollaboration \\
     \fi
@@ -83,6 +78,8 @@
 
 \ifstandalone
     \end{titlepage}
+\else
+    \newpage
 \fi
 }
 
@@ -97,7 +94,7 @@
     \pagenumbering{arabic}
     \setcounter{page}{1}
 \else
-    % supress everything
+    % Do absolutely nothing in Annual Mode to maintain pagination and suppress indices
 \fi
 }
 

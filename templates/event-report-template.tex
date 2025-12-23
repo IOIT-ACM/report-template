@@ -1,10 +1,10 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 %   IOIT ACM Event Report LaTeX Template
-%   Version 2.0.0
 %
 %   Professional template for AISSMS IOIT ACM Student Chapter event reports.
 %   Supports both standalone and annual report compilation modes.
+%   Version 2.1.0
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
@@ -122,38 +122,46 @@
 %   d. Verify document remains compilable
 %   e. Ensure no emojis introduced
 %   f. Return complete document with this header preserved
+%   2. The content starts after the Context-Aware Wrapper.
+%   3. If this event is NOT a competition, comment out the "Competition Winners" section.
+%   4. If this event is NOT a workshop/seminar, comment out "Resource Person Details".
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\documentclass[11pt, a4paper]{article}
+%===============================================================================
+%   METADATA
+%===============================================================================
+% This section must be filled by the report author.
+% These values are read by both Standalone and Annual Report modes.
+
+\renewcommand{\reporttopic}{[Event Title - e.g. Workshop on Git & GitHub]}
+\renewcommand{\reportdate}{[DD/MM/YYYY]}
+\renewcommand{\reportvenue}{[Specific Venue - e.g. Lab 4 or Online via Teams]}
+\renewcommand{\reportorganizer}{AISSMS IOIT ACM Student Chapter}
+\renewcommand{\eventhead}{[Name of Event Head]}
+\renewcommand{\reportauthor}{[Your Name]}
+\renewcommand{\submissiondate}{[DD/MM/YYYY]}
+% Optional: \renewcommand{\reportcollaboration}{Name of Partner Org}
 
 %===============================================================================
 %   CONTEXT-AWARE WRAPPER
 %===============================================================================
 \ifdefined\annualreportmode
-    % If in Annual Report mode, do nothing (preamble is already loaded)
+    % Mode: Annual Report - Preamble is already loaded by the master file.
 \else
-    % If Standalone, define document class and load preamble
+    % Mode: Standalone - Load essential configuration.
     \documentclass[11pt, a4paper]{article}
     \input{common/preamble.tex}
     \input{common/event-macros.tex}
-
-    % Standalone Metadata (Contributors edit these)
-    \renewcommand{\reporttopic}{Event Name/Title Goes Here}
-    \renewcommand{\reportdate}{DD/MM/YYYY}
-    \renewcommand{\reportvenue}{AISSMS Institute of Information Technology}
-    \renewcommand{\reportorganizer}{AISSMS IOIT ACM Student Chapter}
-    \renewcommand{\eventhead}{Name of Event head}
-    \renewcommand{\reportauthor}{Report Author Name}
-    \renewcommand{\submissiondate}{DD/MM/YYYY}
-
     \begin{document}
 \fi
 
 %===============================================================================
-%   REPORT CONTENT (Shared by both modes)
+%   REPORT FRONT MATTER
 %===============================================================================
-
+% These macros are defined in common/event-macros.tex
+% \makecustomtitle handles the title page (resets page in standalone, continuous in annual)
+% \makeconditionalfrontmatter handles TOC/LOF/LOT (suppressed in annual mode)
 \makecustomtitle
 \makeconditionalfrontmatter
 
@@ -161,77 +169,19 @@
 %   MAIN CONTENT
 %===============================================================================
 
-%-------------------------------------------------------------------------------
 \section{Abstract}
-% PURPOSE: This section provides a concise summary of the entire event (150-250 words).
-% CONTENT TO INCLUDE:
-% - Brief overview of the event and its purpose
-% - Event type (workshop, competition, seminar, hackathon, etc.)
-% - Main objectives of organizing this event
-% - Key activities conducted
-% - Number of participants/attendees
-% - Primary outcomes or key highlights
-% Keep it brief and self-contained - readers should understand the essence of
-% the event without reading the full report.
-
 [Write your abstract here - a concise summary of the event, its objectives, activities conducted, participation, and key outcomes in 150-250 words]
 
-%-------------------------------------------------------------------------------
 \section{Introduction}
-% PURPOSE: Set the context and background for the event.
-% CONTENT TO INCLUDE:
-% - Background about why this event was organized
-% - Relevance to ACM Student Chapter's mission/goals
-% - Target audience (students, professionals, specific departments, etc.)
-% - Current trends or needs in the domain that this event addresses
-% - Brief overview of what the report will cover
-% - Any historical context (if this is a recurring event)
-% This section should gradually lead the reader from general context to
-% the specific event.
+[Write your introduction here - provide background context, explain why this event was organized, and its relevance to students]
 
-[Write your introduction here - provide background context, explain why this event was organized, its relevance to students/community, and give an overview of the report]
-
-%-------------------------------------------------------------------------------
 \section{Event Objective}
-% PURPOSE: Clearly state what the event aimed to achieve.
-% CONTENT TO INCLUDE:
-% - Primary goal(s) of organizing the event
-% - Learning outcomes expected for participants
-% - Skills or knowledge to be developed
-% - Community building or networking objectives
-% - Expected impact on students/participants
-% - Specific deliverables or outcomes planned
-% Be specific and measurable where possible.
+[State the main goals and specific objectives of the event - what did you aim to achieve?]
 
-[State the main goals and specific objectives of the event - what did you aim to achieve? What learning outcomes were expected? What impact did you plan to create?]
-
-%-------------------------------------------------------------------------------
 \section{Event Details and Structure}
-% PURPOSE: Describe the organization and structure of the event.
-% CONTENT TO INCLUDE:
-% - Event format (workshop, competition, seminar, panel discussion, etc.)
-% - Duration and schedule (single-day, multi-day, time slots)
-% - Registration process and participant selection (if applicable)
-% - Event agenda or timeline
-% - Activities/sessions conducted
-% - Tools, platforms, or technologies used (online/offline)
-% - Team involved in organizing (roles and responsibilities)
-% This section should give readers a clear understanding of how the
-% event was structured and executed.
-
-[Describe the format, structure, schedule, and organization of the event. Include the agenda, activities conducted, and how the event was managed]
+[Describe the format, structure, schedule, and organization of the event.]
 
 \subsection{Event Agenda}
-% PURPOSE: Provide detailed schedule of the event.
-% CONTENT TO INCLUDE:
-% - Session-wise breakdown with timings
-% - Topics covered in each session
-% - Speaker/facilitator for each session
-% - Break times and networking sessions
-% Use a table or itemized list for clarity.
-
-[Provide the detailed agenda/schedule of the event with timings and session details]
-
 \begin{table}[h]
     \centering
     \begin{tabularx}{\textwidth}{@{}lX@{}}
@@ -239,11 +189,9 @@
         \textbf{Time} & \textbf{Session/Activity} \\
         \midrule
         10:00 AM - 10:30 AM & Registration \& Welcome \\
-        10:30 AM - 11:30 AM & [Session 1 Topic] \\
-        11:30 AM - 12:30 PM & [Session 2 Topic] \\
-        12:30 PM - 01:30 PM & Lunch Break \\
-        01:30 PM - 03:00 PM & [Session 3 Topic] \\
-        03:00 PM - 04:00 PM & [Final Activity/Closing] \\
+        10:30 AM - 01:00 PM & Technical Session 1 \\
+        01:00 PM - 02:00 PM & Lunch Break \\
+        02:00 PM - 04:00 PM & Hands-on Session \& Closing \\
         \bottomrule
     \end{tabularx}
 	\caption{Event Schedule}
@@ -251,119 +199,51 @@
 \end{table}
 
 %-------------------------------------------------------------------------------
-% DYNAMIC SECTION 1: RESOURCE PERSON DETAILS
-% INSTRUCTIONS: Keep this section for WORKSHOPS, SEMINARS, GUEST LECTURES, and
-% similar events where external experts/speakers are invited.
-% COMMENT OUT this entire section for events like COMPETITIONS, HACKATHONS
-% (unless they have guest speakers/judges), or INTERNAL ACTIVITIES.
+% DYNAMIC SECTION: RESOURCE PERSON DETAILS
+% (Comment out if not applicable)
 %-------------------------------------------------------------------------------
 \section{Resource Person Details}
-% PURPOSE: Provide information about the expert(s) who conducted the event.
-% CONTENT TO INCLUDE:
-% - Complete details as per the table format
-% - Name, designation, organization/company
-% - Email ID and contact information
-% - Area of expertise relevant to the event
-% - Brief background or credentials (can be added in paragraph form below table)
-% - Topics/sessions they handled
-% This section is crucial for workshops, seminars, and guest lectures.
-% COMMENT OUT THIS SECTION if your event type doesn't have resource persons.
-
-[Fill in the details of the resource person(s) who conducted the workshop/seminar. Use the table format provided below]
-
 \begin{table}[h]
     \centering
     \begin{tabularx}{\textwidth}{@{}lX@{}}
         \hline
-        \textbf{Name} & [Full Name of Resource Person] \\
+        \textbf{Name} & [Full Name] \\
         \hline
-        \textbf{Designation} & [Job Title/Position] \\
+        \textbf{Designation} & [Job Title] \\
         \hline
-        \textbf{Organization/Company} & [Organization/Company Name] \\
+        \textbf{Organization} & [Company Name] \\
         \hline
         \textbf{Email ID} & [email@example.com] \\
         \hline
-        \textbf{Area of Expertise} & [e.g., Machine Learning, Web Development, Cloud Computing, Cybersecurity, etc.] \\
+        \textbf{Expertise} & [e.g. Cloud Computing] \\
         \hline
     \end{tabularx}
-	\caption{Details of Industry Expert / Resource Person}
-	\label{tab:resource_person}
+	\caption{Details of Resource Person}
 \end{table}
 
-% If multiple resource persons, duplicate the table:
-% \begin{table}[h]
-%     [Same table structure as above]
-% \end{table}
-
 %-------------------------------------------------------------------------------
-% DYNAMIC SECTION 2: COMPETITION WINNERS
-% INSTRUCTIONS: Keep this section for COMPETITIONS, HACKATHONS, CODING CONTESTS,
-% and similar competitive events.
-% COMMENT OUT this entire section for events like WORKSHOPS, SEMINARS, GUEST
-% LECTURES, or NON-COMPETITIVE ACTIVITIES.
+% DYNAMIC SECTION: COMPETITION WINNERS
+% (Comment out if not applicable)
 %-------------------------------------------------------------------------------
 \section{Competition Winners}
-% PURPOSE: Recognize and document the winners of the competition.
-% CONTENT TO INCLUDE:
-% - Winner details with positions (1st, 2nd, 3rd place, special mentions)
-% - Participant names (individual or team names)
-% - Department/Year (if applicable)
-% - Brief description of winning entry/performance
-% - Prizes awarded
-% This section is essential for all competitive events.
-% COMMENT OUT THIS SECTION if your event is not a competition.
-
-[Document the competition winners with their positions, names, and details. Add photos if available]
-
-\subsection{Winner List}
-% List the winners in order of their rankings
-
 \begin{table}[h]
     \centering
 	\begin{tabularx}{\textwidth}{@{}cXX@{}}
         \hline
         \textbf{Position} & \textbf{Name/Team Name} & \textbf{Department/Year} \\
         \hline
-        1st Place & [Winner Name/Team] & [Dept/Year] \\
+        1st Place & [Winner Name] & [Dept/Year] \\
         \hline
-        2nd Place & [Winner Name/Team] & [Dept/Year] \\
+        2nd Place & [Winner Name] & [Dept/Year] \\
         \hline
-        3rd Place & [Winner Name/Team] & [Dept/Year] \\
-        \hline
-        % Add more rows for special mentions, consolation prizes, etc.
     \end{tabularx}
 	\caption{Competition Winners}
-	\label{tab:winners}
 \end{table}
 
-%-------------------------------------------------------------------------------
 \section{Event Execution and Activities}
-% PURPOSE: Describe what actually happened during the event.
-% CONTENT TO INCLUDE:
-% - Detailed description of sessions/activities conducted
-% - Key topics covered or skills taught
-% - Hands-on activities, exercises, or tasks
-% - Participant engagement and interaction
-% - Demonstrations, presentations, or practical sessions
-% - Q&A sessions, discussions, or collaborative activities
-% This section should give readers a vivid picture of the event experience.
+[Describe the actual execution - topics covered and participant engagement]
 
-[Describe the actual execution of the event - what activities were conducted, what topics were covered, how participants engaged, and any notable moments]
-
-%-------------------------------------------------------------------------------
 \section{Participation and Engagement}
-% PURPOSE: Document participant statistics and engagement levels.
-% CONTENT TO INCLUDE:
-% - Total number of participants/registrations
-% - Department-wise or year-wise breakdown
-% - Attendance statistics
-% - Participant feedback or response during the event
-% - Level of engagement and interaction
-% - Any participation certificates or recognition given
-% Use tables or charts to present statistics clearly.
-
-[Provide detailed information about participation numbers, demographics, and engagement levels during the event]
-
 \begin{table}[h]
     \centering
 	\begin{tabularx}{\textwidth}{@{}lc@{}}
@@ -375,160 +255,36 @@
         \bottomrule
     \end{tabularx}
 	\caption{Participation Statistics}
-	\label{tab:participation}
 \end{table}
 
-%-------------------------------------------------------------------------------
 \section{Outcomes and Impact}
-% PURPOSE: Present and analyze the results and impact of the event.
-% CONTENT TO INCLUDE:
-% - Whether event objectives were achieved
-% - Learning outcomes for participants
-% - Skills developed or knowledge gained
-% - Feedback received from participants
-% - Unexpected positive outcomes or learnings
-% - Success metrics (attendance vs. registration, engagement levels, etc.)
-% This section should demonstrate the value and impact of organizing the event.
+[Describe what participants learned and the overall success of the event]
 
-[Describe the outcomes and impact of the event. How successful was it? What did participants learn or gain? Was the event effective in achieving its objectives?]
-
-\subsection{Participant Feedback}
-% PURPOSE: Include qualitative feedback from attendees.
-% CONTENT TO INCLUDE:
-% - Summary of feedback collected (surveys, forms, verbal feedback)
-% - Positive comments and testimonials
-% - Areas of improvement suggested by participants
-% - Overall satisfaction ratings
-% - Quotes from participants (if available)
-
-[Summarize the feedback received from participants. Include both quantitative ratings and qualitative comments]
-
-\begin{itemize}
-    \item Overall satisfaction rating: [X/5 or percentage]
-    \item Positive feedback highlights: [Key positive comments]
-    \item Areas for improvement: [Suggestions from participants]
-    \item Notable testimonials: [Direct quotes if available]
-\end{itemize}
-
-\subsection{Knowledge and Skills Gained}
-% PURPOSE: Document the educational value of the event.
-% CONTENT TO INCLUDE:
-% - Technical skills acquired or improved
-% - Soft skills developed (teamwork, communication, problem-solving)
-% - Practical exposure to industry tools/technologies
-% - Career or academic insights gained
-% - Networking opportunities created
-
-[Describe the knowledge, skills, and experience gained by participants through this event. What specific competencies were developed?]
-
-\begin{itemize}
-    \item Technical skill 1: [Description]
-    \item Technical skill 2: [Description]
-    \item Soft skill 1: [Description]
-    \item Practical exposure: [Description]
-    \item Career insights: [Description]
-\end{itemize}
-
-\subsection{Long-term Impact}
-% PURPOSE: Discuss the broader or lasting impact of the event.
-% CONTENT TO INCLUDE:
-% - How this event contributes to students' career readiness
-% - Community building within the ACM chapter
-% - Industry connections established
-% - Follow-up activities or continued learning opportunities
-
-[Discuss the long-term or broader impact of this event on participants, the ACM chapter, and the student community]
-
-%-------------------------------------------------------------------------------
 \section{Glimpses from the Event}
-% PURPOSE: Provide visual documentation of the event.
-% CONTENT TO INCLUDE:
-% - Photos from the event (venue, participants, activities, presentations)
-% - Screenshots (for online events or demonstrations)
-% - Resource person delivering sessions
-% - Participant engagement moments
-% - Group photos
-% Each figure should have a clear, descriptive caption explaining what it shows.
-% Reference figures in the text using \ref{fig:label}
-% Image files should be named: 1.jpeg, 2.jpeg, 3.jpeg, etc.
-
-[Include photographs and other visual documentation from the event. Each figure should have a descriptive caption. Replace image placeholders with actual filenames: 1.jpeg, 2.jpeg, 3.jpeg]
-
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.8\textwidth]{1.jpeg}
-    \caption{[Caption describing the image - e.g., "Resource person delivering the workshop session on Machine Learning"]}
+    \caption{Key session highlights}
     \label{fig:session}
 \end{figure}
 
-\begin{figure}[h]
-    \centering
-    \begin{subfigure}{0.4\textwidth}
-        \includegraphics[width=\linewidth]{2.jpeg}
-        \caption{[Caption for first image]}
-        \label{fig:glimpse1}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}{0.4\textwidth}
-        \includegraphics[width=\linewidth]{3.jpeg}
-        \caption{[Caption for second image]}
-        \label{fig:glimpse2}
-    \end{subfigure}
-    \caption{[Overall caption - e.g., "Participants actively engaged in hands-on activities"]}
-    \label{fig:activities}
-\end{figure}
-
-%-------------------------------------------------------------------------------
 \section{Conclusion}
-% PURPOSE: Wrap up the report and provide recommendations.
-% CONTENT TO INCLUDE:
-% - Summary of the event's success
-% - Restatement of how objectives were met
-% - Overall impact on participants and ACM chapter
-% - Potential improvements or enhancements
-% - Suggestions for follow-up activities or next steps
-% - Vision for continuing this event (if recurring)
-% Keep this section concise and forward-looking.
+[Summary and recommendations for future events]
 
-[Summarize the event's success, restate achievement of objectives, and provide recommendations for future events]
-
-%-------------------------------------------------------------------------------
 \section*{Acknowledgements}
-% PURPOSE: Recognize contributions and support.
-% CONTENT TO INCLUDE:
-% - Faculty coordinator (Dr. Meenakshi Thalor) and mentors
-% - ACM chapter office bearers and organizing committee members
-% - Resource persons/guest speakers/judges
-% - Collaborating organizations, companies, or industry partners
-% - Sponsors or funding sources (if applicable)
-% - College administration and departments for support
-% - Volunteers and supporting staff
-% - Any other individuals or groups who contributed
-% Be specific and sincere in expressing gratitude.
-
-[Acknowledge all the individuals, faculty members, organizations, and institutions that supported and contributed to making this event successful. Express gratitude for their guidance, resources, and collaboration]
-
-We would like to express our sincere gratitude to:
-\begin{itemize}
-    \item Faculty Coordinator Dr. Meenakshi Thalor, for guidance and support
-    \item Resource Person Name, for conducting an excellent workshop/seminar/session
-    \item College Department, for providing venue and resources
-    \item Sponsoring Organization, for their generous support
-    \item ACM Student Chapter office bearers and organizing team members
-    \item All participants for their enthusiastic engagement
-\end{itemize}
+We thank Dr. Meenakshi Thalor and the organizing team for their support.
 
 %===============================================================================
 %   SUBMISSION BLOCK
 %===============================================================================
-
+% Suppressed automatically in Annual Report mode via event-macros.tex
 \makesubmissionblock
 
 %===============================================================================
 %   CONTEXT-AWARE CLOSER
 %===============================================================================
 \ifdefined\annualreportmode
-    \clearpage % Just end the page in Annual Report
+    \clearpage
 \else
-    \end{document} % Properly close the PDF in Standalone
+    \end{document}
 \fi
