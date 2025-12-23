@@ -18,7 +18,7 @@
 %
 %   STATE 1 — TEMPLATE MODE
 %   Identified by: Placeholder text in [brackets], instructional comments,
-%   example table data, generic \newcommand values (DD/MM/YYYY, Event Name/Title)
+%   example table data, generic \renewcommand values (DD/MM/YYYY, Event Name/Title)
 %   Action: Generate complete event report following Generation Protocol
 %
 %   STATE 2 — COMPLETED REPORT MODE
@@ -79,7 +79,7 @@
 %   - Keep ONLY this instruction header and Update Protocol
 %
 %   Content:
-%   - Replace \newcommand definitions with actual data
+%   - Replace \renewcommand definitions with actual data
 %   - Write professional, formal prose
 %   - Use sequential image filenames: 1.jpeg, 2.jpeg, 3.jpeg
 %   - NO EMOJIS anywhere
@@ -100,7 +100,7 @@
 %   RULE 2: UPDATE SCOPE IDENTIFICATION
 %
 %   Examples:
-%   - "Change event date to 15/03/2024" → Modify \newcommand{\reportdate} only
+%   - "Change event date to 15/03/2024" → Modify \renewcommand{\reportdate} only
 %   - "Add second prize winner" → Add single row to winners table only
 %   - "Update resource person email" → Modify email cell only
 %   - "Expand outcomes section" → Modify Outcomes section only
@@ -139,13 +139,13 @@
     \input{common/event-macros.tex}
 
     % Standalone Metadata (Contributors edit these)
-    \newcommand{\reporttopic}{Event Name/Title Goes Here}
-    \newcommand{\reportdate}{DD/MM/YYYY}
-    \newcommand{\reportvenue}{AISSMS Institute of Information Technology}
-    \newcommand{\reportorganizer}{AISSMS IOIT ACM Student Chapter}
-    \newcommand{\eventhead}{Name of Event head}
-    \newcommand{\reportauthor}{Report Author Name}
-    \newcommand{\submissiondate}{DD/MM/YYYY}
+    \renewcommand{\reporttopic}{Event Name/Title Goes Here}
+    \renewcommand{\reportdate}{DD/MM/YYYY}
+    \renewcommand{\reportvenue}{AISSMS Institute of Information Technology}
+    \renewcommand{\reportorganizer}{AISSMS IOIT ACM Student Chapter}
+    \renewcommand{\eventhead}{Name of Event head}
+    \renewcommand{\reportauthor}{Report Author Name}
+    \renewcommand{\submissiondate}{DD/MM/YYYY}
 
     \begin{document}
 \fi

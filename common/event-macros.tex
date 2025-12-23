@@ -1,7 +1,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 %   EVENT REPORT MACROS
-%   Updated for Arabic Pagination and Conditional Front Matter
+%   Conditional compilation macros for standalone vs. embedded mode
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -14,17 +14,20 @@
 \fi
 
 % --- Metadata Placeholder Definitions ---
-% These are default values. Reports will override these using \renewcommand.
-\renewcommand{\reporttopic}{Event Name/Title Goes Here}
-\renewcommand{\reportdate}{DD/MM/YYYY}
-\renewcommand{\reportvenue}{AISSMS Institute of Information Technology}
-\renewcommand{\reportorganizer}{AISSMS IOIT ACM Student Chapter}
-\renewcommand{\eventhead}{Name of Event head}
-\renewcommand{\reportauthor}{Report Author Name}
-\renewcommand{\submissiondate}{DD/MM/YYYY}
-\renewcommand{\reportcollaboration}{} % Add if needed
+% These ensure the commands exist so that individual event reports can
+% update them using \renewcommand without causing errors.
+\newcommand{\reporttopic}{[Event Title]}
+\newcommand{\reportdate}{[DD/MM/YYYY]}
+\newcommand{\reportvenue}{[Venue]}
+\newcommand{\reportorganizer}{[Organizer]}
+\newcommand{\eventhead}{[Event Head]}
+\newcommand{\reportauthor}{[Report Author]}
+\newcommand{\submissiondate}{[Submission Date]}
+\newcommand{\reportcollaboration}{}
 
 % --- Section Reset Logic for Annual Report ---
+% This logic allows each event to start at Section 1 without breaking
+% the Annual Report's global section numbering.
 \newcounter{annualtempsection}
 \newcounter{eventcount}
 
@@ -40,12 +43,16 @@
 
 % --- Custom Title Page Command ---
 \newcommand{\makecustomtitle}{%
+% Requirement: Retain descriptive page in both modes.
+% Standalone gets a full titlepage (resets page counter).
+% Annual Report gets a clearpage (preserves continuous pagination).
 \ifstandalone
     \begin{titlepage}
     \thispagestyle{empty}
 \else
     \clearpage
-    \thispagestyle{fancy} % Standard header for annual report pages
+    \thispagestyle{fancy} % Keep annual report headers/footers
+    \thispagestyle{fancy}
 \fi
 
     \centering
@@ -65,6 +72,7 @@
     \textbf{EVENT DATE:} & \reportdate \\
     \textbf{VENUE:} & \reportvenue \\
     \textbf{ORGANIZED BY:} & \reportorganizer \\
+    % Display collaboration only if it has been provided
     \ifx\reportcollaboration\empty\else
     \textbf{IN COLLABORATION WITH:} & \reportcollaboration \\
     \fi
@@ -78,17 +86,18 @@
 \fi
 }
 
-% --- Conditional Front Matter (USE ARABIC EVERYWHERE) ---
+% --- Conditional Front Matter Commands ---
 \newcommand{\makeconditionalfrontmatter}{%
 \ifstandalone
-    % Only show these in individual reports
-    \pagenumbering{arabic}
+    \pagenumbering{roman}
     \tableofcontents
     \listoffigures
+    \listoftables
     \clearpage
+    \pagenumbering{arabic}
+    \setcounter{page}{1}
 \else
-    % In Annual Report mode: Do not show TOC, LOF, or LOT.
-    % Pagination remains continuous Arabic from the master doc.
+    % supress everything
 \fi
 }
 
