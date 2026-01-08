@@ -1,0 +1,500 @@
+\documentclass[11pt, a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\usepackage[left=2cm, right=2cm, top=3.5cm, bottom=2.5cm, headheight=75pt]{geometry}
+
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{hyperref}
+\usepackage{xcolor}
+
+\usepackage{eso-pic}
+\usepackage{etoolbox}
+
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{amsmath, amssymb}
+\usepackage{url}
+\usepackage{longtable}
+\usepackage{tabularx}
+\usepackage{textcomp} % Added for Rupee symbol support
+\usepackage{transparent}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,
+    urlcolor=cyan,
+    pdftitle={ACM Pune CTF Partnership Proposal},
+    pdfauthor={Aditya Godse},
+    pdfsubject={Event Report}
+}
+
+\newcommand{\acmwatermark}{
+  \AddToShipoutPictureBG{
+    \AtPageCenter{
+      \makebox(0,0){
+        {\transparent{0.1}
+        \includegraphics[width=0.8\textwidth]{acm-logo.png}}
+      }
+    }
+  }
+}
+
+
+% Updated Metadata based on Proposal
+\newcommand{\reporttopic}{ACM Pune CTF Partnership Proposal}
+\newcommand{\reportdate}{March--April 2026 (Tentative)}
+\newcommand{\reportvenue}{AISSMS Institute of Information Technology}
+\newcommand{\reportorganizer}{AISSMS IOIT ACM Student Chapter}
+\newcommand{\eventhead}{Aditya Godse}
+\newcommand{\reportcollaboration}{Partner ACM Student Chapters}
+\newcommand{\reportauthor}{Aditya Godse}
+\newcommand{\submissiondate}{DD/MM/YYYY}
+
+\pagestyle{fancy}
+\fancyhf{}
+
+% Header
+\fancyhead[L]{
+\begin{minipage}[c]{1\textwidth}
+\textbf{ACM Pune CTF Partnership Proposal}\\
+\small Proposal for a Regional Event with AISSMS IOIT ACM Student Chapter
+\end{minipage}
+}
+\fancyhead[C]{}
+\renewcommand{\headrulewidth}{0.4pt}
+
+\fancyfoot[C]{\thepage}
+\renewcommand{\footrulewidth}{0pt}
+
+\newcommand{\makecustomtitle}{
+\begin{titlepage}
+\centering
+\thispagestyle{empty}
+
+\noindent
+% Title page modified: Removed college logo
+\makebox[1\textwidth][c]{%
+    \includegraphics[height=2.4cm]{acm-logo.png}
+}%
+\vspace{2.5cm}
+
+{\Large \textbf{AISSMS IOIT ACM Student Chapter Event Report}}\\[0.5cm]
+{\Huge \bfseries \reporttopic}\\
+\vfill
+
+\begin{flushleft}
+\large
+\begin{tabular}{@{}l@{\quad}l}
+\textbf{EVENT DATE:} & \reportdate \\
+\textbf{ORGANIZED BY:} & \reportorganizer \\
+\end{tabular}
+\end{flushleft}
+
+\vfill
+\end{titlepage}
+}
+
+\begin{document}
+
+\makecustomtitle
+
+\pagenumbering{roman}
+\newpage
+\tableofcontents
+\newpage
+
+\pagenumbering{arabic}
+\acmwatermark
+
+\section{Abstract}
+
+AISSMS IOIT ACM Student Chapter is organizing a on-site Capture The Flag competition on classical information security challenges plus emerging AI security threats. We are seeking partner ACM Student Chapters across the region to collaborate and scale this into a premier regional cybersecurity event.
+
+The event targets students, early career professionals, and security enthusiasts, offering hands-on workshops and a competitive CTF component (12 hours of competition, structured as either a single intensive day or split across two days).
+
+\section{Event Overview}
+
+\begin{itemize}
+    \item \textbf{Organizing Chapter:} AISSMS IOIT ACM Student Chapter
+    \item \textbf{Format:} On-site CTF (jeopardy-style) with specialized AI/ML security tracks
+    \item \textbf{Capacity:} $\sim$120 onsite participants
+    \item \textbf{Tentative Window:} March–April 2026 (flexible)
+    \item \textbf{Event Vision:} Regional-scale collaborative CTF event
+\end{itemize}
+
+\section{Event Tracks \& Challenge Scope}
+
+Each track includes easy $\to$ medium $\to$ hard challenges. Total: \textbf{35–50 challenges} designed to accommodate various skill levels and ensure competitive scoring distribution.
+
+\subsection{Core Security Tracks}
+
+\begin{itemize}
+    \item \textbf{Web Security} — Web vulnerabilities, authentication bypass, logic flaws, session management
+    \item \textbf{OSINT} — Open-source intelligence, footprinting, metadata analysis, social engineering puzzles
+    \item \textbf{Mobile Security} — Android/iOS app reversing, insecure storage, inter-process communication
+    \item \textbf{Digital Forensics} — PCAP analysis, log examination, timeline reconstruction, evidence recovery
+    \item \textbf{Network Security} — Protocol analysis, traffic inspection, service exploitation
+    \item \textbf{Cryptography} — Classical and modern cryptography, encoding puzzles, implementation flaws
+    \item \textbf{Reverse Engineering} — Binary analysis, obfuscation techniques, packer analysis
+    \item \textbf{Miscellaneous} — Steganography, logic puzzles, hardware simulation
+\end{itemize}
+
+\subsection{AI/ML Security Tracks (Specialized)}
+
+Given the emerging importance of AI security, we're dedicating expanded coverage:
+
+\begin{itemize}
+    \item \textbf{Prompt Injection \& Manipulation} — Direct and indirect prompt injection, jailbreaking techniques, context manipulation
+    \item \textbf{Model Context Protocol (MCP) Exploitation} — MCP security vulnerabilities, tool abuse, context poisoning
+    \item \textbf{Adversarial Machine Learning} — Adversarial examples, model evasion, data poisoning attacks
+    \item \textbf{AI Model Hardening} — Input sanitization challenges, output filtering, safety boundary testing
+    \item \textbf{LLM Logic \& Reasoning Exploits} — Chain-of-thought manipulation, reasoning bypass, hallucination exploitation
+    \item \textbf{AI Application Security} — RAG system vulnerabilities, agent security, AI API abuse
+\end{itemize}
+
+\noindent \textbf{Flag Format:} \texttt{ACMCTF\{...\}} (consistent across all challenges)
+
+\noindent \textbf{Suggested Challenge Distribution} (for $\sim$40 challenges):\\
+Web 5, OSINT 4, Mobile 3, Forensics 5, Network 4, Crypto 4, RE 5, Misc 3, Prompt Injection 2, MCP Security 2, Adversarial ML 1, Model Hardening 1, LLM Logic 1
+
+\section{How Partner Chapters Can Contribute}
+
+We welcome partnerships at various levels. Partner chapters can contribute in one or more of the following ways:
+
+\subsection{Venue Support}
+\begin{itemize}
+    \item Provide physical venue space (auditoriums, labs, breakout rooms)
+    \item Arrange facilities including power, internet connectivity, and AV equipment
+    \item Coordinate on-campus logistics and accessibility
+\end{itemize}
+
+\subsection{Technical Teams}
+\begin{itemize}
+    \item Challenge development team members (web security, cryptography, forensics, AI/ML security, etc.)
+    \item Infrastructure and network administration support
+    \item Platform hosting and monitoring volunteers
+    \item Help desk and technical support staff during the event
+\end{itemize}
+
+\subsection{Media \& Content Teams}
+\begin{itemize}
+    \item Photography and videography coverage
+    \item Social media management and live updates
+    \item Content creation for promotional materials
+    \item Post-event highlight reels and documentation
+\end{itemize}
+
+\subsection{Marketing \& Public Relations}
+\begin{itemize}
+    \item Co-branding and promotional material design
+    \item Campus outreach and poster campaigns
+    \item Social media amplification across partner networks
+    \item Coordination with department heads and faculty for institutional support
+\end{itemize}
+
+\subsection{Sponsorship \& Fundraising}
+\begin{itemize}
+    \item AISSMS IOIT ACM Student Chapter will help bring activations to partnering institutes
+    \item Approach potential sponsors in your region/campus
+    \item Facilitate on-campus fundraising activities
+    \item Connect with alumni networks for funding and mentorship
+\end{itemize}
+
+\subsection{Event Support \& Operations}
+\begin{itemize}
+    \item Registration and check-in volunteer teams
+    \item On-ground event coordination and participant support
+    \item Catering and hospitality coordination
+    \item Prize distribution and certificate management
+\end{itemize}
+
+\subsection{Participant Mobilization}
+\begin{itemize}
+    \item Promote the event within your chapter and campus
+    \item Organize pre-event workshops and practice sessions
+    \item Encourage team registrations from your institution
+    \item Coordinate travel arrangements for participant groups
+\end{itemize}
+
+\section{Competition Format Options}
+
+\subsection{Option A — Single Day Intensive (Recommended for focused execution)}
+\begin{itemize}
+    \item \textbf{12 continuous hours} of competition (onsite)
+    \item Morning: Opening ceremony, sponsor keynotes, quick technical briefings
+    \item Midday-Evening: Full competition window
+    \item Ideal for: Simplified logistics, single-day venue booking, concentrated energy
+\end{itemize}
+
+\subsection{Option B — Two-Day Educational + Competition (Recommended for learning focus)}
+\begin{itemize}
+    \item \textbf{Day 1:} Workshops on security fundamentals and AI/ML security, warmup challenges, 6-8 hour qualifier round (open to all registered participants)
+    \item \textbf{Day 2:} Final 6-8 hour main event for top N teams (determined by Day 1 performance), closing ceremony, prize distribution, networking session
+\end{itemize}
+
+\noindent \textbf{Our Recommendation:} Option B maximizes educational value and allows workshops to prepare participants for specialized AI security challenges, while creating a more engaging multi-day experience.
+
+\section{Rules \& Code of Conduct}
+
+\subsection{Competition Rules}
+\begin{itemize}
+    \item \textbf{Strictly on-site} — No remote participation (ensures fair play and community building)
+    \item \textbf{Team Structure} — Solo participants and teams of 1-4 members allowed
+    \item \textbf{Fair Play} — No flag sharing, inter-team collaboration, or external assistance
+    \item \textbf{Flag Format} — \texttt{ACMCTF\{...\}} must be maintained
+    \item \textbf{Scoring System} — Point-based with dynamic scoring (first solves earn bonus points); time used as tiebreaker
+    \item \textbf{Writeups} — Participants may be asked to submit brief writeups for solved challenges (post-event)
+\end{itemize}
+
+\section{Venue, Facilities \& Equipment Requirements}
+
+\subsection{For $\sim$120 Participants}
+
+\textbf{Main Competition Hall}
+\begin{itemize}
+    \item Seating for 120 participants with adequate table space
+    \item Power outlets at every workstation (BYOL — Bring Your Own Laptop)
+    \item Canteen area for Lunch
+\end{itemize}
+
+\textbf{Workshop \& Breakout Spaces}
+\begin{itemize}
+    \item 2-3 smaller rooms for concurrent workshops, sponsor booths, and briefings
+\end{itemize}
+
+\textbf{Network Infrastructure}
+\begin{itemize}
+    \item Dedicated wired LAN for challenge network (highly recommended)
+    \item Controlled outbound internet access
+    \item VLANs to isolate challenge infrastructure from public networks
+    \item Adequate bandwidth for 120+ concurrent users
+\end{itemize}
+
+\textbf{Power \& Backup}
+\begin{itemize}
+    \item Extra power strips and extension cords
+    \item UPS systems for critical servers and network equipment
+\end{itemize}
+
+\textbf{Audio-Visual Equipment}
+\begin{itemize}
+    \item Large screen/projector for live scoreboard display
+    \item Live stream setup area (optional but recommended)
+    \item PA system for announcements
+\end{itemize}
+
+\textbf{Support Areas}
+\begin{itemize}
+    \item Registration and badge printing desk
+    \item Technical help desk station
+    \item First aid station
+    \item Exhibitor area for sponsors (tables, power, signage space)
+    \item Secure room for infrastructure administrators and challenge staging
+\end{itemize}
+
+\section{Technical Infrastructure (Minimum Requirements)}
+
+\subsection{Core Platform}
+
+\textbf{Scoring Platform}
+\begin{itemize}
+    \item CTFd or equivalent hosted on resilient infrastructure from a CTF Partner
+\end{itemize}
+
+\textit{The CTF Partner will provide following deleveriables:}
+\begin{itemize}
+    \item HTTPS with valid certificates
+    \item Rate limiting and DDoS protection
+    \item Backup systems and redundancy
+    \item Containerized environments (Docker/LXC/KVM) for each challenge
+    \item Orchestration for easy deployment and rebuild
+    \item Auto-cleanup policies to prevent resource exhaustion
+    \item Isolated networks per challenge category
+    \item NAT and port forwarding only for intended services
+    \item Internal DDoS prevention and monitoring
+    \item Firewall rules isolating challenge networks
+    \item Network traffic monitoring and logging
+    \item Load testing in staging environment prior to event
+    \item Backup and rollback images for all challenges
+    \item Real-time monitoring dashboards for uptime and performance
+    \item Alert systems for infrastructure issues
+\end{itemize}
+
+\newpage
+\section{Sponsorship \& Partnership Packages}
+
+We will create tiered sponsorship packages to provide value to corporate and community partners:
+
+\noindent \textit{Particulars will be shared after onboarding}
+
+\subsection{Title / Presenting Sponsor (1 Exclusive)}
+
+\begin{itemize}
+    \item Exclusive event naming rights
+    \item ..
+\end{itemize}
+
+\subsection{Platinum Sponsors}
+\begin{itemize}
+    \item Logo prominence on materials
+    \item Social media mentions and co-branded content
+    \item Swag distribution to participants
+    \item ..
+\end{itemize}
+
+\subsection{Gold Sponsors}
+\begin{itemize}
+    \item Logo placement on website and materials
+    \item Social media recognition
+    \item Swag distribution
+    \item ..
+\end{itemize}
+
+\subsection{Silver Sponsors}
+\begin{itemize}
+    \item Logo on website
+    \item Social media mention
+    \item Swag distribution
+    \item ..
+\end{itemize}
+
+\subsection{Community Partners / Exhibitors}
+\begin{itemize}
+    \item Exhibition table
+    \item Logo in digital materials
+    \item ..
+\end{itemize}
+
+\subsection{Potential Partners to Approach}
+Arcon, PureID, Altered Security, Barracks, TechOwl InfoSec, RedTeam Hacker Academy, Cymmetri, Securze, CognitivTrust, and other regional cybersecurity firms, training academies, and technology companies.
+
+\section{Marketing \& Outreach Strategy}
+
+\subsection{Campus Outreach}
+\begin{itemize}
+    \item Physical posters and standees across partner campuses
+    \item Department email announcements to CS/IT/Cybersecurity students
+    \item Student community presentations (coding clubs, security societies, ACM chapters)
+    \item Faculty coordination for course credit or bonus opportunities*
+\end{itemize}
+
+\subsection{Community Partnerships}
+\begin{itemize}
+    \item Collaboration with BSides, null chapters, OWASP chapters, and local security meetups
+    \item Cross-promotion with past CTF participants and alumni networks
+    \item Security researcher and bug bounty community outreach
+\end{itemize}
+
+\subsection{Registration \& Communication}
+\begin{itemize}
+    \item Dedicated event website with comprehensive information
+    \item Clear rules, tracks, FAQ, schedule, and prize breakdown
+    \item Early bird registration or student pricing tiers
+    \item Email campaigns to registered participants with preparation resources
+\end{itemize}
+
+\subsection{Targeted Outreach}
+\begin{itemize}
+    \item Direct outreach to cybersecurity student clubs across Pune and neighboring cities in Maharashtra.
+    \item CS/IT department heads for institutional support
+    \item Corporate security teams for volunteer judges and mentors
+\end{itemize}
+
+\newpage
+\section{Prizes \& Recognition}
+
+\subsection{Prize Pool (subject to sponsorship)}
+
+\subsubsection{Top Teams}
+\begin{itemize}
+    \item \textbf{1st Place:} \textrupee 10,000 + Professional certification vouchers (CRTP) + swag
+    \item \textbf{2nd Place:} \textrupee 10,000 + Swag package
+    \item \textbf{3rd Place:} \textrupee 5,000 + Swag package
+\end{itemize}
+
+\subsubsection{Special Category Prizes}
+\begin{itemize}
+    \item \textbf{First Blood Awards} — First solve on select hard challenges (\textrupee 500 each)
+    \item \textbf{Best Writeup Award} — Most comprehensive and educational solution writeup (\textrupee 1,500)
+    \item \textbf{AI Security Excellence} — Top performer across AI/ML security tracks (special recognition)
+\end{itemize}
+
+\subsubsection{Participation \& Recognition}
+\begin{itemize}
+    \item Digital certificates for all participants
+    \item Physical certificates for top teams
+    \item Sponsor-specific prizes (internship vouchers, interview fast-tracks, training credits)
+    \item Social media recognition and winner showcase
+\end{itemize}
+
+\noindent \textit{Total Estimated Prize Pool is scalable based on sponsorship}
+
+\section{Budget Overview (High-Level Categories)}
+
+\subsection{Prizes \& Recognition}
+\begin{itemize}
+    \item Cash prizes for winners
+    \item Professional certification vouchers (Sponsored)
+    \item Trophies and certificates
+    \item Swag production (stickers, badges)
+\end{itemize}
+
+\subsection{Catering \& Hospitality (Apply for ABF)}
+\begin{itemize}
+    \item Water and beverages throughout the day
+    \item Snacks and refreshments
+    \item lunch for participants and volunteers
+\end{itemize}
+
+\subsection{Marketing \& Promotion}
+\begin{itemize}
+    \item Poster and banner printing
+\end{itemize}
+
+\subsection{Operations}
+\begin{itemize}
+    \item Volunteer t-shirts and meals
+    \item Travel and accommodation for keynote speakers/judges (if applicable)
+    \item Registration materials and badges
+\end{itemize}
+
+\textit{Most of these can be obtained from sponsors}
+\textit{Partner chapters can contribute to specific budget categories or pool resources for shared expenses.}
+
+\section{Contact Information}
+
+\textbf{Organizing Chapter:} AISSMS IOIT ACM Student Chapter, Pune
+
+\vspace{0.3cm}
+
+\noindent For partnership inquiries, sponsorship opportunities, or additional information, please contact:
+
+\vspace{0.2cm}
+
+\noindent\textbf{Aditya Godse}\\
+Chairperson\\AISSMS IOIT ACM Student Chapter\\
+
+\vspace{0.2cm}
+
+\noindent \url{tel:7248945402}\\
+\url{adimail2404@gmail.com}\\
+\url{https://ioit.acm.org/}
+
+
+\vfill
+
+\noindent \textbf{We look forward to collaborating with partner ACM Student Chapters to make this a landmark regional cybersecurity event!}
+
+\vspace{0.5cm}
+
+\noindent \textit{This proposal is open for discussion and modification based on partner feedback and logistical realities.}
+
+\end{document}
