@@ -12,24 +12,6 @@
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
-%   DOCUMENT STATE DETECTION
-%
-%   This document exists in exactly one of two states:
-%
-%   STATE 1 — TEMPLATE MODE
-%   Identified by: Placeholder text in [brackets], instructional comments,
-%   example table data, generic \renewcommand values (DD/MM/YYYY, Event Name/Title)
-%   Action: Generate complete event report following Generation Protocol
-%
-%   STATE 2 — COMPLETED REPORT MODE
-%   Identified by: Real event content, populated tables with actual data,
-%   specific event details in abstract/introduction, removal of placeholders
-%   Action: Apply only explicitly requested updates following Update Protocol
-%
-%   DEFAULT RULE: If uncertain, treat as Template Mode.
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
 %   NON-NEGOTIABLE RULES
 %
 %   The following elements are institutionally mandated and MUST NEVER be modified:
@@ -42,7 +24,7 @@
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
-%   GENERATION PROTOCOL (Template Mode Only)
+%   GENERATION PROTOCOL
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
@@ -88,7 +70,7 @@
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
-%   UPDATE PROTOCOL (Completed Report Mode Only)
+%   UPDATE PROTOCOL
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
@@ -127,6 +109,97 @@
 %   4. If this event is NOT a workshop/seminar, comment out "Resource Person Details".
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%   LATEX COMPILATION SAFETY RULES (MANDATORY)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%   The generated document MUST compile without errors or warnings.
+%   The following rules are strictly enforced during content generation.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%   TABLE AND ALIGNMENT SAFETY
+%
+%   1. SPECIAL CHARACTER ESCAPING
+%      The following characters MUST be escaped when used as text:
+%
+%         &   → \&
+%         %   → \%
+%         _   → \_
+%         #   → \#
+%         $   → \$
+%
+%      These characters are reserved by LaTeX and MUST NEVER appear
+%      unescaped inside tables, captions, or normal text.
+%
+%   2. COLUMN ALIGNMENT RULE
+%      The number of '&' separators in each table row MUST EXACTLY match
+%      the column definition of the tabular/tabularx environment.
+%
+%      Example:
+%          {lX}  → exactly ONE '&' per row.
+%          {cXX} → exactly TWO '&' per row.
+%
+%      Extra or missing '&' characters are strictly prohibited.
+%
+%   3. ROW TERMINATION
+%      Every table row MUST end with:
+%
+%          \\
+%
+%      before any \hline, \midrule, or \bottomrule command.
+%
+%   4. LONG TEXT IN TABLE CELLS
+%      Long paragraphs inside tables MUST be wrapped using:
+%
+%          \parbox[t]{\linewidth}{...}
+%
+%      or allowed to flow only within X-type columns of tabularx.
+%      Plain long text must not overflow alignment.
+%
+%   5. NO EMPTY TABLE ROWS
+%      Blank rows or incomplete rows inside tables are not allowed.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%   BOOKTABS USAGE RULES
+%
+%   6. When using \toprule, \midrule, or \bottomrule:
+%         - Do NOT combine them with vertical lines.
+%         - Do NOT place text immediately after rule commands.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%   ENVIRONMENT INTEGRITY
+%
+%   7. Every environment MUST close properly:
+%
+%          \begin{tabularx} → \end{tabularx}
+%          \begin{table}    → \end{table}
+%          \begin{figure}   → \end{figure}
+%
+%      Nested environments must close in reverse order.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%   CONTENT SAFETY RULES
+%
+%   8. Do NOT introduce additional LaTeX packages.
+%   9. Do NOT modify column definitions.
+%  10. Do NOT insert raw line breaks or manual spacing commands inside tables.
+%  11. Do NOT include emojis or Unicode symbols unsupported by LaTeX.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%   VALIDATION REQUIREMENT
+%
+%   12. Before output, the document must be internally validated to ensure:
+%       - No alignment mismatches exist.
+%       - No unescaped special characters remain.
+%       - All tables compile cleanly.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %===============================================================================
 %   CONTEXT-AWARE WRAPPER
@@ -147,27 +220,14 @@
 % This section must be filled by the report author.
 % These values are read by both Standalone and Annual Report modes.
 
-\renewcommand{\reporttopic}{[Event Title]}
+\renewcommand{\reporttopic}{[Event Name/Title]}
 \renewcommand{\reportdate}{[DD/MM/YYYY]}
-\renewcommand{\reportvenue}{[Specific Venue - e.g. Lab 4 or Online via Teams]}
+\renewcommand{\reportvenue}{[Event Venue]}
 \renewcommand{\reportorganizer}{AISSMS IOIT ACM Student Chapter}
-\renewcommand{\eventhead}{[Name of Event Head]}
-\renewcommand{\reportauthor}{[Your Name]}
+\renewcommand{\eventhead}{[Event Head Name]}
+\renewcommand{\reportauthor}{[Report Author Name]}
 \renewcommand{\submissiondate}{[DD/MM/YYYY]}
-% Optional: \renewcommand{\reportcollaboration}{Name of Partner Org}
-
-%===============================================================================
-%   CONTEXT-AWARE WRAPPER
-%===============================================================================
-\ifdefined\annualreportmode
-    % Mode: Annual Report - Preamble is already loaded by the master file.
-\else
-    % Mode: Standalone - Load essential configuration.
-    \documentclass[11pt, a4paper]{article}
-    \input{common/preamble.tex}
-    \input{common/event-macros.tex}
-    \begin{document}
-\fi
+\renewcommand{\reportcollaboration}{[Collaborating Organization / None]}
 
 %===============================================================================
 %   REPORT FRONT MATTER
@@ -183,33 +243,16 @@
 %===============================================================================
 
 \section{Abstract}
-[Write your abstract here - a concise summary of the event, its objectives, activities conducted, participation, and key outcomes in 150-250 words]
+[Provide a comprehensive 150-250 word summary of the event. Include the hosting organization, collaborating entities, event title, date, core concepts covered, target audience, total attendance, and a brief statement on the overall impact and success of the event.]
 
 \section{Introduction}
-[Write your introduction here - provide background context, explain why this event was organized, and its relevance to students]
+[Provide background information leading to the conceptualization of this event. Explain the motivation for organizing it, the target audience, and the technological or academic gap it aimed to bridge. State how the event aligns with the goals of the ACM Student Chapter.]
 
 \section{Event Objective}
-[State the main goals and specific objectives of the event - what did you aim to achieve?]
+[Detail the primary and secondary objectives of the event. What were the students expected to learn or achieve? Mention any practical skills, theoretical knowledge, or professional exposure the event aimed to deliver.]
 
 \section{Event Details and Structure}
-[Describe the format, structure, schedule, and organization of the event.]
-
-\subsection{Event Agenda}
-\begin{table}[h]
-    \centering
-    \begin{tabularx}{\textwidth}{@{}lX@{}}
-        \toprule
-        \textbf{Time} & \textbf{Session/Activity} \\
-        \midrule
-        10:00 AM - 10:30 AM & Registration \& Welcome \\
-        10:30 AM - 01:00 PM & Technical Session 1 \\
-        01:00 PM - 02:00 PM & Lunch Break \\
-        02:00 PM - 04:00 PM & Hands-on Session \& Closing \\
-        \bottomrule
-    \end{tabularx}
-	\caption{Event Schedule}
-	\label{tab:schedule}
-\end{table}
+[Describe the overall structure of the event. Was it a single-day workshop, a multi-day competition, or a seminar? Mention the format (e.g., lecture, hands-on, interactive zones) and the general logistical setup managed by the organizing team.]
 
 %-------------------------------------------------------------------------------
 % DYNAMIC SECTION: RESOURCE PERSON DETAILS
@@ -222,13 +265,13 @@
         \hline
         \textbf{Name} & [Full Name] \\
         \hline
-        \textbf{Designation} & [Job Title] \\
+        \textbf{Designation} & [Professional Designation] \\
         \hline
-        \textbf{Organization} & [Company Name] \\
+        \textbf{Organization} & [Company / Institution Name] \\
         \hline
-        \textbf{Email ID} & [email@example.com] \\
+        \textbf{Email ID} & [Email Address] \\
         \hline
-        \textbf{Expertise} & [e.g. Cloud Computing] \\
+        \textbf{Expertise} & [Key Areas of Expertise] \\
         \hline
     \end{tabularx}
 	\caption{Details of Resource Person}
@@ -249,70 +292,54 @@
         \hline
         2nd Place & [Winner Name] & [Dept/Year] \\
         \hline
+        3rd Place & [Winner Name] & [Dept/Year] \\
+        \hline
     \end{tabularx}
 	\caption{Competition Winners}
 \end{table}
 
 \section{Event Execution and Activities}
-[Describe the actual execution - topics covered and participant engagement]
+[Provide a detailed, chronological account of how the event unfolded. Describe the specific topics covered by the speaker, the tools demonstrated, the nature of the hands-on activities, or the progression of the competition. Describe any distinct segments, breakout sessions, or interactive zones.]
 
 \section{Participation and Engagement}
+[Describe the demographics of the participants and their level of engagement. Mention specific moments of high interaction, such as Q\&A sessions, active participation in activities, or feedback received during the event.]
+
 \begin{table}[h]
     \centering
 	\begin{tabularx}{\textwidth}{@{}lc@{}}
         \toprule
         \textbf{Category} & \textbf{Count} \\
         \midrule
-        Total Registrations & [Number] \\
-        Total Attendees & [Number] \\
+        Total Registrations & [00] \\
+        Total Attendees & [00] \\
         \bottomrule
     \end{tabularx}
 	\caption{Participation Statistics}
 \end{table}
 
 \section{Outcomes and Impact}
-[Describe what participants learned and the overall success of the event]
+[Summarize the direct results of the event. Detail the specific technical and soft skills the participants gained. Provide any notable qualitative feedback or testimonials. Explain how the event contributed to the participants' academic or professional journey.]
 
 \section{Glimpses from the Event}
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.8\textwidth]{2025/events/github/1.jpg}
-    \caption{Group picture of all the participants at the workshop with Dr. Meenakshi Thalor and the speaker.}
-    \label{fig:group}
+    \includegraphics[width=0.5\textwidth]{1.jpeg}
+    \caption{[Brief professional caption describing the action or subject in the first image]}
+    \label{fig:session}
 \end{figure}
 
 \begin{figure}[h]
     \centering
-    \begin{subfigure}[b]{0.45\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{2025/events/ai workshop/1.jpg}
-        \caption{Participants actively engaged in the hands-on session.}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}[b]{0.45\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{2025/events/github/3.jpg}
-        \caption{Resource person delivering the technical session.}
-    \end{subfigure}
-    \caption{Key moments from the workshop.}
-    \label{fig:highlights}
+    \includegraphics[width=0.5\textwidth]{2.jpeg}
+    \caption{[Brief professional caption describing the interaction or audience in the second image]}
+    \label{fig:interaction}
 \end{figure}
 
 \section{Conclusion}
-[Summary and recommendations for future events]
+[Provide a concluding paragraph summarizing the overall success of the event in meeting its objectives. Mention any recommendations or future steps, such as follow-up events, advanced workshops, or continuing collaborations.]
 
 \section*{Acknowledgements}
-\addcontentsline{toc}{section}{Acknowledgements}
-
-We would like to express our sincere gratitude to:
-
-\begin{itemize}
-    \item Faculty Coordinator Dr. Meenakshi Thalor, for continuous guidance and support
-    \item College Principal and Management, for providing resources and institutional support
-    \item All resource persons, industry experts, and guest speakers who shared their knowledge
-    \item All ACM Student Chapter office bearers and volunteers for their dedication
-    \item All participating students who made these events successful
-\end{itemize}
+We would like to express our sincere gratitude to our Faculty Coordinator, Dr. Meenakshi Thalor, for their continuous guidance and support. We extend our heartfelt thanks to the Principal, Dr. P. B. Mane, and the AISSMS IOIT administration for providing the necessary resources and platform to host this event. Special thanks go to the venue staff for their prompt logistical assistance. Finally, we deeply appreciate the Event Head, \eventhead, and all the organizing team members present at the venue whose dedicated efforts and coordination ensured the smooth and successful execution of the event.
 
 %===============================================================================
 %   SUBMISSION BLOCK
@@ -328,3 +355,4 @@ We would like to express our sincere gratitude to:
 \else
     \end{document}
 \fi
+
